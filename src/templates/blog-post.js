@@ -3,12 +3,14 @@ import { Link, graphql } from "gatsby"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
+import Tag from "../components/tag"
 import { rhythm, scale } from "../utils/typography"
 
 const BlogPostTemplate = ({ data, pageContext, location }) => {
   const post = data.markdownRemark
   const siteTitle = data.site.siteMetadata.title
   const { previous, next } = pageContext
+  const tags = data.markdownRemark.frontmatter.tags
 
   return (
     <Layout location={location} title={siteTitle}>
@@ -34,6 +36,7 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
             }}
           >
             {post.frontmatter.date}
+            <Tag tags={tags} />
           </p>
         </header>
         <section dangerouslySetInnerHTML={{ __html: post.html }} />
@@ -92,6 +95,7 @@ export const pageQuery = graphql`
         title
         date(formatString: "MMMM DD, YYYY")
         description
+        tags
       }
     }
   }

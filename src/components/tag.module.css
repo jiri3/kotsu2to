@@ -1,0 +1,15 @@
+ul.tagContainer {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+ul.tagContainer li.item {
+  list-style: none;
+  font-size: small;
+  margin: 0.5rem 0;
+}
+
+ul.tagContainer li:not(:last-child)::after {
+  content: "/";
+  margin: 0 0.3rem;
+}
