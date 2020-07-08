@@ -6,25 +6,27 @@ import SEO from "../components/seo"
 import Tag from "../components/tag"
 import { rhythm } from "../utils/typography"
 
-const BlogIndex = ({ data, location }) => {
+const TagPageTemplate = ({ data, pageContext, location }) => {
   const siteTitle = data.site.siteMetadata.title
   const posts = data.allMarkdownRemark.edges
   const top = data.site.siteMetadata.topPage
-  const tags = data.allMarkdownRemark.distinct
   return (
     <Layout location={location} title={siteTitle}>
       <SEO title={top} />
+      <p>tag: {pageContext.tag}</p>
       {posts.map(({ node }) => {
-        const title = node.frontmatter.title || node.fields.slug
+        const path = node.fields.slug
+        const title = node.frontmatter.title || path
+        const tags = node.frontmatter.tags
         return (
-          <article key={node.fields.slug}>
+          <article key={path}>
             <header>
               <h3
                 style={{
                   marginBottom: rhythm(1 / 4),
                 }}
               >
-                <Link style={{ boxShadow: `none` }} to={node.fields.slug}>
+                <Link style={{ boxShadow: `none` }} to={path}>
                   {title}
                 </Link>
               </h3>
@@ -36,34 +38,31 @@ const BlogIndex = ({ data, location }) => {
                   __html: node.frontmatter.description || node.excerpt,
                 }}
               />
+              <Tag tags={tags} />
             </section>
           </article>
         )
       })}
-      <hr
-        style={{
-          marginTop: rhythm(1),
-        }}
-      />
-      <Tag tags={tags} />
     </Layout>
   )
 }
 
-export default BlogIndex
+export default TagPageTemplate
 
 export const pageQuery = graphql`
-  query {
+  query TagPageBySlug($tag: String!) {
     site {
       siteMetadata {
         title
         topPage
       }
     }
-    allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
+    allMarkdownRemark(
+      sort: { fields: frontmatter___date, order: DESC }
+      filter: { frontmatter: { tags: { eq: $tag } } }
+    ) {
       edges {
         node {
-          excerpt
           fields {
             slug
           }
@@ -75,7 +74,6 @@ export const pageQuery = graphql`
           }
         }
       }
-      distinct(field: frontmatter___tags)
     }
   }
 `

@@ -48,6 +48,38 @@ exports.createPages = async ({ graphql, actions }) => {
       },
     })
   })
+
+  // Create tag category pages
+  createTagPage(createPage, graphql)
+}
+
+async function createTagPage(createPage, graphql) {
+  const tagPage = path.resolve(`./src/templates/tag-page.js`)
+  const tagResult = await graphql(
+    `
+      {
+        allMarkdownRemark {
+          distinct(field: frontmatter___tags)
+        }
+      }
+    `
+  )
+
+  if (tagResult.errors) {
+    throw tagResult.errors
+  }
+
+  const tags = tagResult.data.allMarkdownRemark.distinct
+
+  tags.forEach(tag => {
+    createPage({
+      path: `tag/${tag}`,
+      component: tagPage,
+      context: {
+        tag: tag,
+      },
+    })
+  })
 }
 
 exports.onCreateNode = ({ node, actions, getNode }) => {
