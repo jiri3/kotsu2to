@@ -7,7 +7,9 @@ tags:
   - TypeScript
   - Gmail API
   - OAuth2.0
+category: blog
 ---
+
 Node.js + TypeScript で、Gmail API を使ってメールを取得するまでの実装を説明します。
 
 Gmail API は 下図の OAuth ２.0 のプロトコルフローに沿って、
@@ -18,6 +20,7 @@ Gmail API は 下図の OAuth ２.0 のプロトコルフローに沿って、
 そちらで OAuth2.0 プロトコルフローを試してみることもできます。
 
 <a name="flow"></a>
+
 ```
 +----------+
 | Resource |
@@ -54,7 +57,7 @@ two parts as they pass through the user-agent.
 
 ### 事前準備
 
-#### クライアント登録と資格情報を取得する  <a name="client"></a>
+#### クライアント登録と資格情報を取得する <a name="client"></a>
 
 まずは、Google の認可サーバーにクライアント（アプリケーション）情報を登録します。
 （[RFC6749 の 2.Client Registration](https://tools.ietf.org/html/rfc6749#section-2)にあたる仕様）  
@@ -105,7 +108,7 @@ OAuthForGoogleApi クラスをインスタンス化する際、第一引数に�
 
 その他、詳細はソースコード中のコメントに記載しましたので、そちらを参照ください。  
 コメントには、上に載せた [Authorization Code Flow](#flow)と実装を対応づけるため、
-A〜Eのアルファベットを記しています。
+A〜E のアルファベットを記しています。
 
 ##### GmailApi.ts
 
@@ -116,26 +119,26 @@ gmail_v1.Resource$Users$Messages は次のようにインスタンス化でき�
 
 ```javascript
 const usersMessages = new gmail_v1.Resource$Users$Messages({
-    _options: {
-        auth: oAuth2Client, // OAuth2Clientのインスタンスをセットする
-    },
-});
+  _options: {
+    auth: oAuth2Client, // OAuth2Clientのインスタンスをセットする
+  },
+})
 ```
 
 ###### 検索条件に一致するメールを取得する
 
 gmail_v1.Resource$Users$Messages#list メソッドを利用します。  
-list メソッドのパラメータは、```gmail_v1.Params$Resource$Users$Messages$List```型です。  
+list メソッドのパラメータは、`gmail_v1.Params$Resource$Users$Messages$List`型です。  
 メールアドレスが、xxx@example.com のメールを検索したい場合は、次のようにパラメータを生成すればよいです。
 
 ```javascript
 // メールの検索条件を生成する
 const param: gmail_v1.Params$Resource$Users$Messages$List = {
-    userId: `me`,
-    q: `from:xxx@example.com`,
-};
+  userId: `me`,
+  q: `from:xxx@example.com`,
+}
 // 検索の実行
-const result = await usersMessages.list(param);
+const result = await usersMessages.list(param)
 ```
 
 `q`プロパティに設定できる条件は、[こちら](https://support.google.com/mail/answer/7190?hl=ja)を参照ください。
@@ -169,9 +172,9 @@ get メソッドのパラメータは、`Params$Resource$Users$Messages$Get`型�
 
 ```javascript
 const param: gmail_v1.Params$Resource$Users$Messages$Get = {
-    userId: `me`,
-    id: "xxx", // listメソッドで得られたメールのidを設定する
-};
+  userId: `me`,
+  id: "xxx", // listメソッドで得られたメールのidを設定する
+}
 ```
 
 get メソッドを実行すると`gmail_v1.Schema$Message`型の結果を得ます。  
@@ -187,14 +190,14 @@ get メソッドを実行すると`gmail_v1.Schema$Message`型の結果を得ま
 
 ### 留意点やメモ
 
--   リダイレクト URI を http にしてるので、https 化しないとセキュリティ的によろしくないかも？
--   アプリケーション終了後、アクセストークンを revoke した方(失効させた方)がいいかも。
--   アクセストークンは有効期間がある。  
-    そのため失効した場合、リフレッシュトークンを用いて新しいアクセストークンを取得する必要があるが、
-    [こちら](https://github.com/googleapis/google-api-nodejs-client#handling-refresh-tokens)によると、googleapis ライブラリが自動で対応してくれていそう。
+- リダイレクト URI を http にしてるので、https 化しないとセキュリティ的によろしくないかも？
+- アプリケーション終了後、アクセストークンを revoke した方(失効させた方)がいいかも。
+- アクセストークンは有効期間がある。  
+  そのため失効した場合、リフレッシュトークンを用いて新しいアクセストークンを取得する必要があるが、
+  [こちら](https://github.com/googleapis/google-api-nodejs-client#handling-refresh-tokens)によると、googleapis ライブラリが自動で対応してくれていそう。
 
 ### 参考情報
 
--   [Using OAuth 2.0 to Access Google APIs](https://developers.google.com/identity/protocols/oauth2/?hl=ja)
--   [Node.js Quickstart](https://developers.google.com/gmail/api/quickstart/nodejs)
--   [Google APIs Node.js Client](https://github.com/googleapis/google-api-nodejs-client#google-apis-nodejs-client)
+- [Using OAuth 2.0 to Access Google APIs](https://developers.google.com/identity/protocols/oauth2/?hl=ja)
+- [Node.js Quickstart](https://developers.google.com/gmail/api/quickstart/nodejs)
+- [Google APIs Node.js Client](https://github.com/googleapis/google-api-nodejs-client#google-apis-nodejs-client)

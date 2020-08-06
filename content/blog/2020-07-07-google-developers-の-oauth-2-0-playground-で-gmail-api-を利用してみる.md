@@ -7,7 +7,9 @@ description: |-
 tags:
   - Gmail API
   - OAuth2.0
+category: blog
 ---
+
 Google は様々な API を提供してくれています。  
 [OAuth 2.0 Playground](https://developers.google.com/oauthplayground/) は、それらの API を試しに利用することができるサイトです。  
 今回は、OAuth 2.0 Playground で Gmail API を試しに利用してみましたので、
@@ -16,7 +18,6 @@ Google は様々な API を提供してくれています。
 下図が、OAuth 2.0 Playground の Top ページです。
 
 ![Topページ](/media/oauth2playground.png)
-
 
 まず、利用する API の[スコープ](https://developers.google.com/gmail/api/auth/scopes?hl=ja)を選択します。  
 スコープとは、リソースに対して要求するアクセス権のことです。例えば、Gmail API のスコープには、
@@ -77,5 +78,5 @@ me は認証したユーザーを指す[パラメータ](https://developers.goog
 
 ### 参考情報
 
--   [Gmail API Guides](https://developers.google.com/gmail/api/guides?hl=ja)
--   [Gmail API Reference](https://developers.google.com/gmail/api/v1/reference?hl=ja)
+- [Gmail API Guides](https://developers.google.com/gmail/api/guides?hl=ja)
+- [Gmail API Reference](https://developers.google.com/gmail/api/v1/reference?hl=ja)

@@ -6,22 +6,24 @@ tags:
   - TypeScript
   - webpack
   - Node.js
+category: blog
 ---
-Node.jsとTypeScriptでHello Worldするまでのメモです。  
-Mac & Node.jsがインストール済みを前提にしています。
 
-## Node.jsでHello World
+Node.js と TypeScript で Hello World するまでのメモです。  
+Mac & Node.js がインストール済みを前提にしています。
 
-まず、Node.jsで「Hello World」を表示するJavaScriptを実行してみます。\
-JavaScriptのプログラムは下記の通りです。
+## Node.js で Hello World
+
+まず、Node.js で「Hello World」を表示する JavaScript を実行してみます。\
+JavaScript のプログラムは下記の通りです。
 
 ```javascript
 // helloworld.js
-var str = "Hello World";
-console.log(str);
+var str = "Hello World"
+console.log(str)
 ```
 
-次にNode.jsを用いて上記のプログラムを実行します。\
+次に Node.js を用いて上記のプログラムを実行します。\
 コマンドラインで`node helloworld.js`を実行すると期待通りの動作をします。
 
 ```shell
@@ -29,11 +31,11 @@ $ node helloworld.js
 Hello World
 ```
 
-## TypeScriptでHello World
+## TypeScript で Hello World
 
-TypeScriptでHello Worldをしてみます。
-まずはTypeScript環境を構築します。今回はローカルインストールの方法です。  
-実行後、カレントディレクトリにnode_modulesが生成されています。
+TypeScript で Hello World をしてみます。
+まずは TypeScript 環境を構築します。今回はローカルインストールの方法です。  
+実行後、カレントディレクトリに node_modules が生成されています。
 
 ```shell
 $ npm install typescript --no-save
@@ -48,21 +50,22 @@ added 1 package from 1 contributor in 26.528s
 found 0 vulnerabilities
 ```
 
-package.jsonがないと警告が出ていますが、今回は試しにTypeScriptを動かすだけなので無視して大丈夫です。\
-ちなみにpackage.jsonは`npm install`したパッケージの依存性やバージョンなどを管理する場合に必要となるため、`npm init`を実行して生成しておいた方がいいです。
+package.json がないと警告が出ていますが、今回は試しに TypeScript を動かすだけなので無視して大丈夫です。\
+ちなみに package.json は`npm install`したパッケージの依存性やバージョンなどを管理する場合に必要となるため、`npm init`を実行して生成しておいた方がいいです。
 
-次にTypeScriptファイルを作成します。
+次に TypeScript ファイルを作成します。
 
 ```typescript
 // tsHelloWorld.ts
-let str = "Hello World";
-str = 1;
-console.log(str);
+let str = "Hello World"
+str = 1
+console.log(str)
 ```
 
-TypeScriptは型チェックしてくれるので、エラーが出るように2行目にわざと数値型を再代入しています。 \
-TypeScriptの実行ファイルは`./node_modules/.bin/tsc`に保存されていますので、
-それを利用して上記のTypeScriptファイルをコンパイルすると次の結果となります。
+TypeScript は型チェックしてくれるので、エラーが出るように 2 行目にわざと数値型を再代入しています。 \
+TypeScript の実行ファイルは`./node_modules/.bin/tsc`に保存されていますので、
+それを利用して上記の TypeScript ファイルをコンパイルすると次の結果となります。
+
 ```shell
 $ ./node_modules/.bin/tsc tsHelloWorld.ts
 tsHelloWorld.ts:2:1 - error TS2322: Type '1' is not assignable to type 'string'.
@@ -73,15 +76,19 @@ tsHelloWorld.ts:2:1 - error TS2322: Type '1' is not assignable to type 'string'.
 
 Found 1 error.
 ```
-2行目を削除して、再度実行すると期待通りの動作となります。
+
+2 行目を削除して、再度実行すると期待通りの動作となります。
+
 ```shell
 $ ./node_modules/.bin/tsc tsHelloWorld.ts
 $ node tsHelloWorld.js
 Hello World
 ```
-ちなみに、[npx](https://www.npmjs.com/package/npx)を利用すると、`$ npx tsc tsHelloWorld.ts`でコンパイルが実行可能です。  
-但しnpxは、Node >= 8.10 及び npm >= 5.6の環境が必要となります。
 
-参考情報  
-* [TypeScript](https://www.typescriptlang.org/)
-* [Introducing npx: an npm package runner](https://medium.com/@maybekatz/introducing-npx-an-npm-package-runner-55f7d4bd282b)
+ちなみに、[npx](https://www.npmjs.com/package/npx)を利用すると、`$ npx tsc tsHelloWorld.ts`でコンパイルが実行可能です。  
+但し npx は、Node >= 8.10 及び npm >= 5.6 の環境が必要となります。
+
+参考情報
+
+- [TypeScript](https://www.typescriptlang.org/)
+- [Introducing npx: an npm package runner](https://medium.com/@maybekatz/introducing-npx-an-npm-package-runner-55f7d4bd282b)
