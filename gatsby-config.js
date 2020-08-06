@@ -11,6 +11,13 @@ module.exports = {
     social: {
       twitter: ``,
     },
+    menu: [
+      { name: "トップページ", url: "/" },
+      {
+        name: "免責事項・プライバシーポリシー",
+        url: "/targeturl",
+      },
+    ],
   },
   plugins: [
     {
