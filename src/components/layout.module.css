@@ -1,0 +1,42 @@
+div.layoutRoot {
+  --header-widh: 42rem;
+  --main-width: var(--header-widh);
+  display: flex;
+  flex-direction: column;
+}
+
+.layoutRoot > header {
+  max-width: var(--header-widh);
+}
+div.layoutContents {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: baseline;
+}
+
+div.layoutContents > main {
+  flex: 0 1 700px;
+  overflow-x: scroll;
+}
+
+div.layoutContents > aside.right {
+  flex: none;
+}
+
+aside.right .itemBox {
+  flex-shrink: 1;
+  margin: 2rem 2rem;
+  border-bottom: solid 2px aliceblue;
+  border-radius: 20px;
+}
+
+.itemBox div.itemName {
+  background-color: aliceblue;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.itemBox div.item {
+  margin: 1rem;
+}

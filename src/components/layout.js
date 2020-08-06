@@ -1,20 +1,30 @@
 import React from "react"
 import { Link } from "gatsby"
 import { rhythm, scale } from "../utils/typography"
+import Menu from "./menu"
+import style from "./layout.module.css"
 
 const Layout = ({ location, title, children }) => {
   return (
-    <div
-      style={{
-        marginLeft: `auto`,
-        marginRight: `auto`,
-        maxWidth: rhythm(24),
-        padding: `${rhythm(1.5)} ${rhythm(3 / 4)}`,
-      }}
-    >
-      <header>{getHeader(location, title)}</header>
-      <main>{children}</main>
-      <footer></footer>
+    <div>
+      <div
+        style={{
+          marginLeft: `auto`,
+          marginRight: `auto`,
+          maxWidth: rhythm(40),
+          padding: `${rhythm(1.5)} ${rhythm(3 / 4)}`,
+        }}
+        className={style.layoutRoot}
+      >
+        <header>{getHeader(location, title)}</header>
+        <div className={style.layoutContents}>
+          <main>{children}</main>
+          <aside className={style.right}>
+            <Menu menuStyle={style} />
+          </aside>
+        </div>
+        <footer></footer>
+      </div>
     </div>
   )
 }
