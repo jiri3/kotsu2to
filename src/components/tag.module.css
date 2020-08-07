@@ -1,6 +1,7 @@
 ul.tagContainer {
   display: flex;
   flex-wrap: wrap;
+  padding-left: 0px;
 }
 
 ul.tagContainer li.item {
