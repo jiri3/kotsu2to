@@ -7,7 +7,7 @@ tags:
   - TypeScript
   - Gmail API
   - OAuth2.0
-category: blog
+category: tech
 ---
 
 Node.js + TypeScript で、Gmail API を使ってメールを取得するまでの実装を説明します。

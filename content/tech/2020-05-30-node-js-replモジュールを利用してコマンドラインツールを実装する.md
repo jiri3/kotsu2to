@@ -5,7 +5,7 @@ description: Node.jsで動作するコマンドラインツールを作成して
 tags:
   - Node.js
   - REPL
-category: blog
+category: tech
 ---
 
 Node.js で動作するコマンドラインツールを作成してみたかったので、[repl モジュール](https://nodejs.org/api/repl.html)を試しに利用してみました。  

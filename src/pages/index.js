@@ -61,7 +61,7 @@ export const pageQuery = graphql`
       }
     }
     allMarkdownRemark(
-      filter: { fields: { slug: { regex: "//blog/*/" } } }
+      filter: { fields: { slug: { regex: "//tech/*/" } } }
       sort: { fields: [frontmatter___date], order: DESC }
     ) {
       edges {
