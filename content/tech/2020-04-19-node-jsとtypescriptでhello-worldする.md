@@ -6,7 +6,7 @@ tags:
   - TypeScript
   - webpack
   - Node.js
-category: blog
+category: tech
 ---
 
 Node.js と TypeScript で Hello World するまでのメモです。  

@@ -9,7 +9,7 @@ tags:
   - React
   - TypeScript
   - Create React App
-category: blog
+category: tech
 ---
 
 [Create React App](https://create-react-app.dev/)のインストール方法のメモです。  

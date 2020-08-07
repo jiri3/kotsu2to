@@ -7,7 +7,7 @@ description: |-
 tags:
   - Gmail API
   - OAuth2.0
-category: blog
+category: tech
 ---
 
 Google は様々な API を提供してくれています。  

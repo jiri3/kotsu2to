@@ -5,7 +5,7 @@ description: Node.jsに関して調べたことのメモです。
 tags:
   - Node.js
   - npm
-category: blog
+category: tech
 ---
 
 Node.js に関して調べたことのメモです。

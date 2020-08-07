@@ -6,7 +6,7 @@ tags:
   - GitHub
   - GitHub API
   - Git
-category: blog
+category: tech
 ---
 
 ## 実行するコマンドの一覧
