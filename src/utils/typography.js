@@ -1,10 +1,23 @@
 import Typography from "typography"
 import Wordpress2016 from "typography-theme-wordpress-2016"
 
-Wordpress2016.overrideThemeStyles = () => {
+Wordpress2016.overrideThemeStyles = ({ rhythm }) => {
   return {
     "a.gatsby-resp-image-link": {
       boxShadow: `none`,
+    },
+    ul: {
+      marginLeft: "1.75rem",
+      marginRight: 0,
+      marginTop: 100,
+      paddingBottom: 0,
+      paddingLeft: rhythm(1),
+      paddingRight: 0,
+      paddingTop: 0,
+      marginBottom: "1.75rem",
+      listStylePosition: "outside",
+      listStyleImage: "none",
+      listStyle: "disc",
     },
   }
 }

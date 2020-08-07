@@ -4,7 +4,7 @@ import { Link, graphql } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import Tag from "../components/tag"
-import { rhythm, scale } from "../utils/typography"
+import { rhythm } from "../utils/typography"
 
 const BlogPostTemplate = ({ data, pageContext, location }) => {
   const post = data.markdownRemark
@@ -28,16 +28,14 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
           >
             {post.frontmatter.title}
           </h1>
-          <p
+          <div
             style={{
-              ...scale(-1 / 5),
-              display: `block`,
-              marginBottom: rhythm(1),
+              marginTop: rhythm(0.5),
             }}
           >
             {post.frontmatter.date}
-            <Tag tags={tags} />
-          </p>
+          </div>
+          <Tag tags={tags} />
         </header>
         <section dangerouslySetInnerHTML={{ __html: post.html }} />
         <hr
