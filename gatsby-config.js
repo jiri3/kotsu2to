@@ -7,7 +7,7 @@ module.exports = {
       summary: ``,
     },
     description: `コツコツと綴ってまいります`,
-    siteUrl: `https://vibrant-ptolemy-c18e30.netlify.com/`,
+    siteUrl: `https://kotsukotsu.work/`,
     social: {
       twitter: ``,
     },
