@@ -1,51 +1,81 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
-
+import style from "./index.module.css"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import Tag from "../components/tag"
 import { rhythm } from "../utils/typography"
+import { getCategoriesName, findLabelByName } from "../properties.js"
 
 const BlogIndex = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata.title
-  const posts = data.allMarkdownRemark.edges
+  const group = data.allMarkdownRemark.group
   const top = data.site.siteMetadata.topPage
-  const tags = data.allMarkdownRemark.distinct
+
+  const groupbyCategory = group.reduce((acc, { nodes }) => {
+    // graphqlでcategoryでグルーピングしているので、
+    // いずれかのnode一つでも同じcategoryならば、nodesの要素全て同じcategoryになる
+    const category = nodes[0].frontmatter.category
+    if (category) {
+      acc[category] = nodes
+    } else {
+      acc[category] = []
+    }
+    return acc
+  }, {})
+  const postList = getCategoriesName().map(category => {
+    const nodes = groupbyCategory[category]
+    if (nodes) {
+      return (
+        <div name="categoryArea">
+          <h2 name="categoryName">
+            <Link className={style.link} to={category}>
+              {findLabelByName(category)}
+            </Link>
+          </h2>
+          {nodes.map(node => {
+            return (
+              <article key={node.fields.slug}>
+                <header>
+                  <h3
+                    style={{
+                      marginBottom: rhythm(1 / 4),
+                    }}
+                  >
+                    <Link style={{ boxShadow: `none` }} to={node.fields.slug}>
+                      {node.frontmatter.title}
+                    </Link>
+                  </h3>
+                  <small>{node.frontmatter.date}</small>
+                </header>
+                <section>
+                  <div
+                    dangerouslySetInnerHTML={{
+                      __html: node.frontmatter.description || node.excerpt,
+                    }}
+                  />
+                </section>
+              </article>
+            )
+          })}
+          <div className={style.toCategory}>
+            <Link to={category}>記事一覧へ ＞</Link>
+          </div>
+          <hr
+            style={{
+              marginTop: rhythm(1),
+            }}
+          />
+        </div>
+      )
+    } else {
+      return null
+    }
+  })
+
   return (
     <Layout location={location} title={siteTitle}>
       <SEO title={top} />
-      {posts.map(({ node }) => {
-        const title = node.frontmatter.title || node.fields.slug
-        return (
-          <article key={node.fields.slug}>
-            <header>
-              <h3
-                style={{
-                  marginBottom: rhythm(1 / 4),
-                }}
-              >
-                <Link style={{ boxShadow: `none` }} to={node.fields.slug}>
-                  {title}
-                </Link>
-              </h3>
-              <small>{node.frontmatter.date}</small>
-            </header>
-            <section>
-              <div
-                dangerouslySetInnerHTML={{
-                  __html: node.frontmatter.description || node.excerpt,
-                }}
-              />
-            </section>
-          </article>
-        )
-      })}
-      <hr
-        style={{
-          marginTop: rhythm(1),
-        }}
-      />
-      <Tag tags={tags} />
+      {postList}
     </Layout>
   )
 }
@@ -61,11 +91,11 @@ export const pageQuery = graphql`
       }
     }
     allMarkdownRemark(
-      filter: { fields: { slug: { regex: "//tech/*/" } } }
+      filter: { frontmatter: { category: { in: ["tech", "random_note"] } } }
       sort: { fields: [frontmatter___date], order: DESC }
     ) {
-      edges {
-        node {
+      group(field: frontmatter___category, limit: 3) {
+        nodes {
           excerpt
           fields {
             slug
@@ -75,10 +105,10 @@ export const pageQuery = graphql`
             title
             description
             tags
+            category
           }
         }
       }
-      distinct(field: frontmatter___tags)
     }
   }
 `

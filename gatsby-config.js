@@ -1,3 +1,5 @@
+const { findLabelByName } = require(`./src/properties`)
+
 module.exports = {
   siteMetadata: {
     title: `コツコツと`,
@@ -13,6 +15,8 @@ module.exports = {
     },
     menu: [
       { name: "トップページ", url: "/" },
+      { name: findLabelByName("tech"), url: "/tech" },
+      { name: findLabelByName("random_note"), url: "/random_note" },
       {
         name: "免責事項・プライバシーポリシー",
         url:

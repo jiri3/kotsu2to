@@ -1,5 +1,6 @@
 const path = require(`path`)
 const { createFilePath } = require(`gatsby-source-filesystem`)
+const { getCategoriesName } = require(`./src/properties`)
 
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
@@ -43,7 +44,7 @@ exports.createPages = async ({ graphql, actions }) => {
       const previous = index === posts.length - 1 ? null : posts[index + 1].node
       const next = index === 0 ? null : posts[index - 1].node
 
-      if (category === `blog`) {
+      if (getCategoriesName().indexOf(category) != -1) {
         // Create blog posts pages.
         createPage({
           path: post.node.fields.slug,
@@ -55,6 +56,7 @@ exports.createPages = async ({ graphql, actions }) => {
           },
         })
       } else {
+        // Create pages.
         createPage({
           path: post.node.fields.slug,
           component: blogPost,
@@ -66,8 +68,24 @@ exports.createPages = async ({ graphql, actions }) => {
     })
   })
 
+  // Create index pages every category
+  createIndexPages(createPage)
+
   // Create tag category pages
   createTagPage(createPage, graphql)
+}
+
+async function createIndexPages(createPage) {
+  const template = path.resolve(`./src/templates/category-index.js`)
+  getCategoriesName().forEach(category => {
+    createPage({
+      path: `${category}`,
+      component: template,
+      context: {
+        category: category,
+      },
+    })
+  })
 }
 
 async function createTagPage(createPage, graphql) {
