@@ -94,5 +94,44 @@ module.exports = {
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
     `gatsby-plugin-netlify-cms`,
+    {
+      resolve: `gatsby-plugin-sitemap`,
+      options: {
+        exclude: [`/tag/*`, `/404*`],
+        query: `
+          {
+            site {
+              siteMetadata {
+                siteUrl
+              }
+            }
+            allSitePage {
+              nodes {
+                path
+              }
+            }
+          }`,
+        serialize: ({ site, allSitePage }) => {
+          return allSitePage.nodes.map(node => {
+            const { path } = node
+            console.log(path)
+            const url = `${site.siteMetadata.siteUrl}${node.path}`
+            if (path.split("/").length < 4) {
+              // 「/」か「/*/」のパスの場合(記事の一覧を表示するページの場合)
+              return {
+                url: url,
+                changefreq: `weekly`,
+                priority: 1.0,
+              }
+            }
+            return {
+              url: url,
+              changefreq: `yearly`,
+              priority: 0.5,
+            }
+          })
+        },
+      },
+    },
   ],
 }
