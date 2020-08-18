@@ -79,7 +79,7 @@ async function createIndexPages(createPage) {
   const template = path.resolve(`./src/templates/category-index.js`)
   getCategoriesName().forEach(category => {
     createPage({
-      path: `${category}`,
+      path: `${category}/`,
       component: template,
       context: {
         category: category,
@@ -108,7 +108,7 @@ async function createTagPage(createPage, graphql) {
 
   tags.forEach(tag => {
     createPage({
-      path: `tag/${tag}`,
+      path: `tag/${tag}/`,
       component: tagPage,
       context: {
         tag: tag,

@@ -15,12 +15,12 @@ module.exports = {
     },
     menu: [
       { name: "トップページ", url: "/" },
-      { name: findLabelByName("tech"), url: "/tech" },
-      { name: findLabelByName("random_note"), url: "/random_note" },
+      { name: findLabelByName("tech"), url: "/tech/" },
+      { name: findLabelByName("random_note"), url: "/random_note/" },
       {
         name: "免責事項・プライバシーポリシー",
         url:
-          "/pages/2020-08-06-%E5%85%8D%E8%B2%AC%E4%BA%8B%E9%A0%85%E3%83%BB%E3%83%97%E3%83%A9%E3%82%A4%E3%83%90%E3%82%B7%E3%83%BC%E3%83%9D%E3%83%AA%E3%82%B7%E3%83%BC",
+          "/pages/2020-08-06-%E5%85%8D%E8%B2%AC%E4%BA%8B%E9%A0%85%E3%83%BB%E3%83%97%E3%83%A9%E3%82%A4%E3%83%90%E3%82%B7%E3%83%BC%E3%83%9D%E3%83%AA%E3%82%B7%E3%83%BC/",
       },
     ],
   },
