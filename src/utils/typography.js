@@ -19,6 +19,18 @@ Wordpress2016.overrideThemeStyles = ({ rhythm }) => {
       listStyleImage: "none",
       listStyle: "disc",
     },
+    ol: {
+      marginLeft: "1.75rem",
+      marginRight: 0,
+      marginTop: 0,
+      paddingBottom: 0,
+      paddingLeft: rhythm(1),
+      paddingRight: 0,
+      paddingTop: 0,
+      marginBottom: "1.75rem",
+      listStylePosition: "outside",
+      listStyleImage: "none",
+    },
   }
 }
 
