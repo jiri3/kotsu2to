@@ -81,7 +81,6 @@ class OgpLayout extends React.Component {
                             width: "250px",
                             height: "auto",
                             display: "block",
-                            alignContent: "center",
                           }}
                         />
                       )}
