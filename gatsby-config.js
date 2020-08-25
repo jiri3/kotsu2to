@@ -114,7 +114,6 @@ module.exports = {
         serialize: ({ site, allSitePage }) => {
           return allSitePage.nodes.map(node => {
             const { path } = node
-            console.log(path)
             const url = `${site.siteMetadata.siteUrl}${node.path}`
             if (path.split("/").length < 4) {
               // 「/」か「/*/」のパスの場合(記事の一覧を表示するページの場合)
