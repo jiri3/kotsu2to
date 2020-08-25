@@ -22,11 +22,11 @@ const BlogIndex = ({ data, location }) => {
     }
     return acc
   }, {})
-  const postList = getCategoriesName().map(category => {
+  const postList = getCategoriesName().map((category, index) => {
     const nodes = groupbyCategory[category]
     if (nodes) {
       return (
-        <div name="categoryArea">
+        <div key={`categoryArea_${index}`} name="categoryArea">
           <h2 name="categoryName">
             <Link className={style.link} to={category}>
               {findLabelByName(category)}
