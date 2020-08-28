@@ -10,8 +10,7 @@ tags:
 無料で利用できる枠もあるので、試しに使うのにはもってこいです。
 
 今回は、Hello World をレスポンスとして返す Serverless Functions をVercelを利用してデプロイしてみます。  
-Serverless Functions とは、HTTPリクエストを受け取りレスポンスを返すコードのことのようです[^1]。  
-[^1]: [Serverless Functions](https://vercel.com/docs/serverless-functions/introduction)
+Serverless Functions とは、HTTPリクエストを受け取りレスポンスを返すコードのことのようです[^1]。[^1]: [Serverless Functions](https://vercel.com/docs/serverless-functions/introduction)
 > With Vercel, you can deploy Serverless Functions, which are pieces of code written with backend languages that take an HTTP request and provide a response.
 
 自信はないですがWeb APIと解釈していいかと思っています。
@@ -29,20 +28,21 @@ Serverless Functions とは、HTTPリクエストを受け取りレスポンス�
 [こちら](https://vercel.com/signup)からアカウントを作成してください。  
 作成するためには、GitHub、GitLab または Bitbucket のいずれかのアカウントが必要になるので、
 事前にそちらのアカウントも作成しておいてください。
-私は GitHub ユーザーなので、以下の説明では GitHub 想定です。
+私は GitHub ユーザーなので、以下の説明は GitHubでアカウントを作成した想定で進めます。
 
 #### Serverless Functions を実装する
 
-まずは、GitHub の方でレポジトリを作成します。  
-Vercel は、GitHub と連動させることが可能で、push すると自動でデプロイすることもできます。
-作成したレポジトリをクローンします。
+Vercel は、GitHub と連動させることが可能で、push するとデプロイまで自動で実行してくれます。  
+この機能を利用するため、まずはGitHub の方でレポジトリを作成します。  
+レポジトリ作成後は、開発環境用にレポジトリをクローンしてきます。
 
 ```bash
 $ git clone `https://github.com/{username}/{repository-name}.git`
 ```
 
-次にクローンしてきたレポジトリのルートディレクトリ配下に api ディレクトリを作成します[^2]。  
+次にクローンしてきたレポジトリのルートディレクトリ配下に api ディレクトリを作成します[^2]。
 [^2]: [Creating Serverless Functions](https://vercel.com/docs/serverless-functions/introduction#creating-serverless-functions)
+
 この api ディレクトリ配下にソースコードを格納する必要があります。
 
 ```bash
@@ -51,7 +51,8 @@ $ mkdir ./api
 
 次に実装に入ります。今回は Node.js で開発します。  
 ちなみに[こちらのプログラミング言語](https://vercel.com/docs/serverless-functions/supported-languages#supported-languages:)がサポートされています。  
-TypeScript を使いたいので、次のパッケージをインストールします[^3]。
+また、TypeScript を使いたいので、次のパッケージをインストールします[^3]。
+
 [^3]: [Using TypeScript with the Node.js Runtime](https://vercel.com/docs/runtimes#official-runtimes/node-js/using-typescript-with-the-node-js-runtime)
 
 ```bash
@@ -59,7 +60,7 @@ $ npm init -y
 $ npm install @vercel/node --save-dev
 ```
 
-Hello world をレスポンスとして返すソースを実装します。
+それでは、Hello world をレスポンスとして返すソースを実装します。
 
 ```javascript
 // api/hello.ts
@@ -96,7 +97,7 @@ Import Git Repository の「Continue」ボタンを押下します。
 
 次の画面は、ソースコードが入っているディレクトリを選択するのですが、
 root ディレクトリのままにして「Continue」ボタンを押下してください。
-ここで、api を選択してしまうと Serverless Functions は実行できなくなるのでご注意ください。
+ここで、api を選択してしまうと Serverless Functions が動作しなくなるのでご注意ください。
 
 ![select the directory](/media/vercel-select-directory.png)
 
@@ -110,13 +111,14 @@ root ディレクトリのままにして「Continue」ボタンを押下して�
 
 #### 動作確認する
 
-作成した Serverless Functions の動作確認をしてみます。
-デプロイ完了後の画面の「Open Dashbord」ボタンを押下するとデプロイしたプロジェクトの
-ダッシュボードが開けます。  
-そこの DOMAINS にデプロイ先の URL が表示されています。
-そして、Serverless Functions を利用する場合は、
-`https://デプロイ先のドメイン/api/ソースコードのファイル名（拡張子を覗く）`にアクセスします。  
-従って、今回作成した Serverless Functions にアクセスする場合は、次の URL となります。
+作成した Serverless Functions の動作確認をしてみます。  
+Serverless FunctionsへアクセスするためのURLですが、`https://デプロイ先のドメイン/api/ソースコードのファイル名（拡張子を覗く）`となります。（これはデフォルトの場合です。設定で変更可能です。）
+デプロイ先のドメインは、下図の通りデプロイしたプロジェクトのダッシュボードに記載されています。  
+（デプロイ完了後の画面の「Open Dashbord」ボタンを押下するとプロジェクトのダッシュボードが開けます。）  
+
+![ドメイン](/media/vercel-project-dashbord.png)
+  
+今回の場合は、次の URLがServerless Functionsへアクセス先となります。
 
 https://vercel-sample-nine.vercel.app/api/hello
 
