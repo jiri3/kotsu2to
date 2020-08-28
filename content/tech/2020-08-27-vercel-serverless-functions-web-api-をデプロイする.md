@@ -1,6 +1,6 @@
 ---
 category: tech
-date: 2020-08-28T08:20:39.561Z
+date: 2020-08-28T10:00:00.000Z
 title: '[Vercel] Serverless Functions(Web API)をデプロイする'
 description: Vercel の Serverless Functions(Web API)をデプロイする手順を説明します。
 tags:
@@ -10,10 +10,7 @@ tags:
 無料で利用できる枠もあるので、試しに使うのにはもってこいです。
 
 今回は、Hello World をレスポンスとして返す Serverless Functions をVercelを利用してデプロイしてみます。  
-Serverless Functions とは、HTTPリクエストを受け取りレスポンスを返すコードのことのようです[^1]。
-
-[^1]: [Serverless Functions](https://vercel.com/docs/serverless-functions/introduction)
-
+Serverless Functions とは、HTTPリクエストを受け取りレスポンスを返すコードのことのようです[^1]。  
 > With Vercel, you can deploy Serverless Functions, which are pieces of code written with backend languages that take an HTTP request and provide a response.
 
 自信はないですがWeb APIと解釈していいかと思っています。
@@ -43,9 +40,7 @@ Vercel は、GitHub と連動させることが可能で、push するとデプ�
 $ git clone `https://github.com/{username}/{repository-name}.git`
 ```
 
-次にクローンしてきたレポジトリのルートディレクトリ配下に api ディレクトリを作成します[^2]。
-
-[^2]: [Creating Serverless Functions](https://vercel.com/docs/serverless-functions/introduction#creating-serverless-functions)
+次にクローンしてきたレポジトリのルートディレクトリ配下に api ディレクトリを作成します[^2]。  
 この api ディレクトリ配下にソースコードを格納する必要があります。
 
 ```bash
@@ -55,8 +50,6 @@ $ mkdir ./api
 次に実装に入ります。今回は Node.js で開発します。  
 ちなみに[こちらのプログラミング言語](https://vercel.com/docs/serverless-functions/supported-languages#supported-languages:)がサポートされています。  
 また、TypeScript を使いたいので、次のパッケージをインストールします[^3]。
-
-[^3]: [Using TypeScript with the Node.js Runtime](https://vercel.com/docs/runtimes#official-runtimes/node-js/using-typescript-with-the-node-js-runtime)
 
 ```bash
 $ npm init -y
@@ -141,3 +134,13 @@ Vercel には、1 日にデプロイできる回数などの制限があるの�
 #### 参考
 
 - [JAMstack ってなに？実践に学ぶ高速表示を実現するアーキテクチャの構成](https://employment.en-japan.com/engineerhub/entry/2019/12/10/103000)
+
+[^1]: [Serverless Functions](https://vercel.com/docs/serverless-functions/introduction)
+
+[^2]: [Creating Serverless Functions](https://vercel.com/docs/serverless-functions/introduction#creating-serverless-functions)
+
+[^3]: [Using TypeScript with the Node.js Runtime](https://vercel.com/docs/runtimes#official-runtimes/node-js/using-typescript-with-the-node-js-runtime)
+
+
+
+
