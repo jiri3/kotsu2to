@@ -10,7 +10,10 @@ tags:
 無料で利用できる枠もあるので、試しに使うのにはもってこいです。
 
 今回は、Hello World をレスポンスとして返す Serverless Functions をVercelを利用してデプロイしてみます。  
-Serverless Functions とは、HTTPリクエストを受け取りレスポンスを返すコードのことのようです[^1]。[^1]: [Serverless Functions](https://vercel.com/docs/serverless-functions/introduction)
+Serverless Functions とは、HTTPリクエストを受け取りレスポンスを返すコードのことのようです[^1]。
+
+[^1]: [Serverless Functions](https://vercel.com/docs/serverless-functions/introduction)
+
 > With Vercel, you can deploy Serverless Functions, which are pieces of code written with backend languages that take an HTTP request and provide a response.
 
 自信はないですがWeb APIと解釈していいかと思っています。
@@ -41,8 +44,8 @@ $ git clone `https://github.com/{username}/{repository-name}.git`
 ```
 
 次にクローンしてきたレポジトリのルートディレクトリ配下に api ディレクトリを作成します[^2]。
-[^2]: [Creating Serverless Functions](https://vercel.com/docs/serverless-functions/introduction#creating-serverless-functions)
 
+[^2]: [Creating Serverless Functions](https://vercel.com/docs/serverless-functions/introduction#creating-serverless-functions)
 この api ディレクトリ配下にソースコードを格納する必要があります。
 
 ```bash
