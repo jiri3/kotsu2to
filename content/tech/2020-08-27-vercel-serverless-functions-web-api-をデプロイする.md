@@ -6,20 +6,21 @@ description: Vercel の Serverless Functions(Web API)をデプロイする手順
 tags:
   - Vercel
 ---
-[Vercel](https://vercel.com/) とは静的サイトと Serverless Functions のクラウドサービスです。  
-Vercel を利用すると、JAMstack なウェブサイトやウェブサービスをホスティングすることができます。
+[Vercel](https://vercel.com/) とは静的サイトや Serverless Functions をホスティングするサービスです。  
 無料で利用できる枠もあるので、試しに使うのにはもってこいです。
 
-今回は、Hello World をレスポンスとして返す Serverless Functions を作成してみます。
-Serverless Functions の意味はよくわかっていませんが、
-サーバーの管理が不要で、実装した機能（例えば Web API）をデプロイして、利用できるということと解釈しています。
+今回は、Hello World をレスポンスとして返す Serverless Functions をVercelを利用してデプロイしてみます。  
+Serverless Functions とは、HTTPリクエストを受け取りレスポンスを返すコードのことのようです[^1]。  
+[^1]: [Serverless Functions](https://vercel.com/docs/serverless-functions/introduction)
+> With Vercel, you can deploy Serverless Functions, which are pieces of code written with backend languages that take an HTTP request and provide a response.
 
-Serverless Functions の作成手順は次の通りです。
+自信はないですがWeb APIと解釈していいかと思っています。
+
+それでは、Serverless Functions の作成手順の説明に進みます。
 
 1. Vercel でアカウントを作成する
 2. Serverless Functions を実装する
 3. デプロイする
-4. Vercel CLI をインストールする
 
 以下、手順に沿って説明していきます。
 
@@ -40,8 +41,8 @@ Vercel は、GitHub と連動させることが可能で、push すると自動�
 $ git clone `https://github.com/{username}/{repository-name}.git`
 ```
 
-次にクローンしてきたレポジトリのルートディレクトリ配下に api ディレクトリを作成します[^1]。  
-[^1]:[Serverless Functions](https://vercel.com/docs/serverless-functions/introduction)  
+次にクローンしてきたレポジトリのルートディレクトリ配下に api ディレクトリを作成します[^2]。  
+[^2]: [Creating Serverless Functions](https://vercel.com/docs/serverless-functions/introduction#creating-serverless-functions)
 この api ディレクトリ配下にソースコードを格納する必要があります。
 
 ```bash
@@ -50,9 +51,8 @@ $ mkdir ./api
 
 次に実装に入ります。今回は Node.js で開発します。  
 ちなみに[こちらのプログラミング言語](https://vercel.com/docs/serverless-functions/supported-languages#supported-languages:)がサポートされています。  
-TypeScript を使いたいので、次のパッケージをインストールします[^2]。
-
-[^2]: [Using TypeScript with the Node.js Runtime](https://vercel.com/docs/runtimes#official-runtimes/node-js/using-typescript-with-the-node-js-runtime)
+TypeScript を使いたいので、次のパッケージをインストールします[^3]。
+[^3]: [Using TypeScript with the Node.js Runtime](https://vercel.com/docs/runtimes#official-runtimes/node-js/using-typescript-with-the-node-js-runtime)
 
 ```bash
 $ npm init -y
