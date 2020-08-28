@@ -83,24 +83,30 @@ $ git push
 
 まずは、Vercel と push したレポジトリを関連付けます。
 Vercel ログイン後に表示されるダッシュボードに「Import Project」ボタンがあるので押下してください。
-![vercel dashbord](media/vercel-dashbord.png)
 
-Import Git Repository の「Continue」ボタンを押下します。  
-![import git repository](media/vercel-import-git-repo.png)
+![vercel dashbord](/media/vercel-dashbord.png)
+
+Import Git Repository の「Continue」ボタンを押下します。
+
+![import git repository](/media/vercel-import-git-repo.png)
 
 次の画面で先ほどの Git レポジトリの URL を入力して、「Continue」ボタンを押下します。
-![enter git repository url](media/vercel-enter-git-repo-url.png)
+
+![enter git repository url](/media/vercel-enter-git-repo-url.png)
 
 次の画面は、ソースコードが入っているディレクトリを選択するのですが、
 root ディレクトリのままにして「Continue」ボタンを押下してください。
 ここで、api を選択してしまうと Serverless Functions は実行できなくなるのでご注意ください。
-![select the directory](media/vercel-select-directory.png)
+
+![select the directory](/media/vercel-select-directory.png)
 
 次の画面は、特に修正は不要です。「Deploy」ボタンを押下してください。
-![deploy](media/vercel-deploy.png)
+
+![deploy](/media/vercel-deploy.png)
 
 以上で、デプロイが完了しました。
-![finish deploy](media/vercel-finish-deploy.png)
+
+![finish deploy](/media/vercel-finish-deploy.png)
 
 #### 動作確認する
 
@@ -109,7 +115,7 @@ root ディレクトリのままにして「Continue」ボタンを押下して�
 ダッシュボードが開けます。  
 そこの DOMAINS にデプロイ先の URL が表示されています。
 そして、Serverless Functions を利用する場合は、
-`デプロイ先のURL/api/ソースコードのファイル名（拡張子を覗く）`にアクセスします。  
+`https://デプロイ先のドメイン/api/ソースコードのファイル名（拡張子を覗く）`にアクセスします。  
 従って、今回作成した Serverless Functions にアクセスする場合は、次の URL となります。
 
 https://vercel-sample-nine.vercel.app/api/hello
@@ -125,7 +131,7 @@ $ curl https://vercel-sample-nine.vercel.app/api/hello
 
 今回は、Vercel の Serverless Functions の作成方法について紹介しました。  
 Vercel には、1 日にデプロイできる回数などの制限があるので、
-利用前に[こちら]()を一読すると良いかと思います。
+利用前に[こちら](https://vercel.com/docs/platform/limits)を一読すると良いかと思います。
 
 #### 参考
 
