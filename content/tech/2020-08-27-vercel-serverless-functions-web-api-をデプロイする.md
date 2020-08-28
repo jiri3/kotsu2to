@@ -108,13 +108,15 @@ root ディレクトリのままにして「Continue」ボタンを押下して�
 #### 動作確認する
 
 作成した Serverless Functions の動作確認をしてみます。  
-Serverless FunctionsへアクセスするためのURLですが、`https://デプロイ先のドメイン/api/ソースコードのファイル名（拡張子を覗く）`となります。（これはデフォルトの場合です。設定で変更可能です。）
+Serverless FunctionsへアクセスするためのURLですが、  
+`https://デプロイ先のドメイン/api/ソースコードのファイル名（拡張子を覗く）`となります。  
+（これはデフォルトの場合です。設定で変更可能です。）  
 デプロイ先のドメインは、下図の通りデプロイしたプロジェクトのダッシュボードに記載されています。  
 （デプロイ完了後の画面の「Open Dashbord」ボタンを押下するとプロジェクトのダッシュボードが開けます。）  
 
 ![ドメイン](/media/vercel-project-dashbord.png)
   
-今回の場合は、次の URLがServerless Functionsへアクセス先となります。
+今回の場合は、次の URLがServerless Functionsへのアクセス先となります。
 
 https://vercel-sample-nine.vercel.app/api/hello
 
@@ -124,6 +126,7 @@ URL パラメータを指定しなければ、「Hello World!」と表示され�
 ```bash
 $ curl https://vercel-sample-nine.vercel.app/api/hello
 ```
+
 
 ---
 
