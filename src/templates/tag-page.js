@@ -9,11 +9,11 @@ import { rhythm } from "../utils/typography"
 const TagPageTemplate = ({ data, pageContext, location }) => {
   const siteTitle = data.site.siteMetadata.title
   const posts = data.allMarkdownRemark.edges
-  const top = data.site.siteMetadata.topPage
+  const top = `Tag: ${pageContext.tag}`
   return (
     <Layout location={location} title={siteTitle}>
       <SEO title={top} />
-      <p>tag: {pageContext.tag}</p>
+      <p>{top}</p>
       {posts.map(({ node }) => {
         const path = node.fields.slug
         const title = node.frontmatter.title || path
