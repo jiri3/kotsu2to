@@ -10,7 +10,7 @@ module.exports = {
     },
     description: `コツコツと綴ってまいります`,
     siteUrl: `https://kotsukotsu.work/`,
-    siteImage: `/media/kotsu2to-icon.png`,
+    siteImage: `https://kotsukotsu.work/media/kotsu2to-icon.png`,
     social: {
       twitter: ``,
     },
