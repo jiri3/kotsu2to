@@ -10,6 +10,7 @@ module.exports = {
     },
     description: `コツコツと綴ってまいります`,
     siteUrl: `https://kotsukotsu.work/`,
+    siteImage: `/media/kotsu2to-icon.png`,
     social: {
       twitter: ``,
     },
@@ -40,13 +41,6 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        path: `${__dirname}/content/assets`,
-        name: `assets`,
-      },
-    },
-    {
       resolve: `gatsby-transformer-remark`,
       options: {
         plugins: [
@@ -74,13 +68,13 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `Gatsby Starter Blog`,
-        short_name: `GatsbyJS`,
+        name: `コツコツと`,
+        short_name: `コツコツと`,
         start_url: `/`,
         background_color: `#ffffff`,
         theme_color: `#663399`,
         display: `minimal-ui`,
-        //icon: `content/assets/gatsby-icon.png`,
+        icon: `static/media/kotsu2to-icon.png`,
       },
     },
     `gatsby-plugin-react-helmet`,
