@@ -1,13 +1,14 @@
 ---
 category: tech
 date: 2020-08-29T04:44:34.676Z
-title: '[NetlifyCMS]NetlifyCMS から投稿した記事の Author、 Committer、メールアドレス について'
+title: "[NetlifyCMS]NetlifyCMS から投稿した記事の Author、 Committer、メールアドレス について"
 description: >-
   このサイトのソースを管理している Git レポジトリの log を見たところ、GitHub に登録している
   Author、Committer、メールアドレスと異なっていたので、原因を調べてみました。
 tags:
   - Netlify
 ---
+
 先日、このサイトのソースを管理している Git レポジトリの log を見たところ、GitHub に登録している Author、Committer、メールアドレスと異なっていたので、原因を調べてみました。
 
 #### 原因
@@ -18,7 +19,7 @@ tags:
 結論は、 Identity で設定した Name と Email でした。  
 ※ 前提として、私は Git Gateway[^1]を利用して GitHub と連携させています。
 
-![Identity](media/netlifycms-identity.png)
+![Identity](/media/netlifycms-identity.png)
 
 #### Author と Committer、メールアドレスの変更方法
 
@@ -27,27 +28,27 @@ Author と Committer、メールアドレスの変更方法は、Netlify のサ�
 まずは、サイト管理画面上部にある Identity メニューを選択します。  
 次に、変更するユーザーを選択します。
 
-![edit settings](media/netlifycms-select-user.png)
+![edit settings](/media/netlifycms-select-user.png)
 
 User metadata にある「Edit settings」ボタンを押下します。
 
-![edit settings](media/netlifycms-edit-settings.png)
+![edit settings](/media/netlifycms-edit-settings.png)
 
 そして、Name と Email に所望の値を設定して、「Save」ボタンを押下します。
 
-![modify name and email](media/netlifycms-modify-name-mail.png)
+![modify name and email](/media/netlifycms-modify-name-mail.png)
 
 それから、GitHub のアクセストークンを再生成します。  
 サイト管理画面上部にある Settings メニュー > Identity > Services > Git Gateway と辿っていきます。
 
-![service menu](media/netlifycms-service-menu.png)
+![service menu](/media/netlifycms-service-menu.png)
 
 「Edit settings」ボタンを押下し、「Generate access token in GitHub」を選択します。  
 最後に「Save」ボタンを押下して完了です。
 
-![modify name and email](media/netlifycms-git-gateway.png)
+![modify name and email](/media/netlifycms-git-gateway.png)
 
-![modify name and email](media/netlifycms-generate-access-token-in-github.png)
+![modify name and email](/media/netlifycms-generate-access-token-in-github.png)
 
 これで、次回のコミットから、変更後のユーザー情報で Author、Committer、メールアドレスが反映されます。  
 もちろんですが NetlifyCMS にログインするメールアドレスは変更後のものとなります。  
