@@ -37,7 +37,7 @@ User metadata にある「Edit settings」ボタンを押下します。
 
 ![modify name and email](media/netlifycms-modify-name-mail.png)
 
-それから、GItHub のアクセストークンを再生成します。  
+それから、GitHub のアクセストークンを再生成します。  
 サイト管理画面上部にある Settings メニュー > Identity > Services > Git Gateway と辿っていきます。
 
 ![service menu](media/netlifycms-service-menu.png)
@@ -55,7 +55,7 @@ User metadata にある「Edit settings」ボタンを押下します。
 
 #### 参考
 
-今までのコミット時に登録されていた Author、Committer、メールアドレスを変更する場合は、下記のサイトが参考になりました。
+今までのコミット時に登録されていた Author、Committer、メールアドレスを変更する場合は、下記のサイトが参考になります。
 
 - [tweeeety のぶろぐ的めも](https://www.tweeeety.blog/entry/2015/03/10/211100)
 - [Git の Commit Author と Committer を変更する](https://qiita.com/sea_mountain/items/d70216a5bc16a88ed932)
