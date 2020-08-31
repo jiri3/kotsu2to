@@ -1,5 +1,6 @@
 backend:
   name: git-gateway
+  # name: test-repo
   branch: master
   commit_messages:
     create: "[add] {{collection}} “{{slug}}”"
@@ -27,6 +28,7 @@ collections:
           default: "tech",
         }
       - { label: Publish Date, name: date, widget: datetime }
+      - { label: "Update Date", name: "updatedate", widget: "hidden" }
       - { label: Title, name: title }
       - { label: "Description", name: "description", widget: "text" }
       - {
@@ -50,6 +52,7 @@ collections:
           default: "pages",
         }
       - { label: Publish Date, name: date, widget: datetime }
+      - { label: "Update Date", name: "updatedate", widget: "hidden" }
       - { label: Title, name: title }
       - { label: "Description", name: "description", widget: "text" }
       - {
@@ -73,6 +76,7 @@ collections:
           default: "random_note",
         }
       - { label: Publish Date, name: date, widget: datetime }
+      - { label: "Update Date", name: "updatedate", widget: "hidden" }
       - { label: Title, name: title }
       - { label: "Description", name: "description", widget: "text" }
       - {
