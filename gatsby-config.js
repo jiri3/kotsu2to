@@ -1,4 +1,5 @@
 const { findLabelByName } = require(`./src/properties`)
+const moment = require("moment")
 
 module.exports = {
   siteMetadata: {
@@ -107,6 +108,9 @@ module.exports = {
             allSitePage {
               nodes {
                 path
+                context {
+                  updatedate
+                }
               }
             }
           }`,
@@ -114,16 +118,22 @@ module.exports = {
           return allSitePage.nodes.map(node => {
             const { path } = node
             const url = `${site.siteMetadata.siteUrl}${node.path}`
+            const updatedate = node.context.updatedate
+            const lastmod = updatedate
+              ? updatedate
+              : moment().format("YYYY-MM-DD")
             if (path.split("/").length < 4) {
               // 「/」か「/*/」のパスの場合(記事の一覧を表示するページの場合)
               return {
                 url: url,
+                lastmod: lastmod,
                 changefreq: `weekly`,
                 priority: 1.0,
               }
             }
             return {
               url: url,
+              lastmod: lastmod,
               changefreq: `yearly`,
               priority: 0.5,
             }

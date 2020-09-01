@@ -22,6 +22,7 @@ exports.createPages = async ({ graphql, actions }) => {
                 frontmatter {
                   title
                   category
+                  updatedate(formatString: "YYYY-MM-DD")
                 }
               }
             }
@@ -41,6 +42,7 @@ exports.createPages = async ({ graphql, actions }) => {
     const posts = group.edges
     posts.forEach((post, index) => {
       const category = post.node.frontmatter.category
+      const updatedate = post.node.frontmatter.updatedate
       const previous = index === posts.length - 1 ? null : posts[index + 1].node
       const next = index === 0 ? null : posts[index - 1].node
 
@@ -51,6 +53,7 @@ exports.createPages = async ({ graphql, actions }) => {
           component: blogPost,
           context: {
             slug: post.node.fields.slug,
+            updatedate: updatedate,
             previous,
             next,
           },
@@ -62,6 +65,7 @@ exports.createPages = async ({ graphql, actions }) => {
           component: blogPost,
           context: {
             slug: post.node.fields.slug,
+            updatedate: updatedate,
           },
         })
       }
