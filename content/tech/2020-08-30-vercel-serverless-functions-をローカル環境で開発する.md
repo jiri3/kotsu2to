@@ -1,6 +1,7 @@
 ---
 category: tech
 date: 2020-08-30T10:26:51.432Z
+updatedate: 2020-08-30T10:26:51.432Z
 title: '[Vercel] Serverless Functions をローカル環境で開発する'
 description: Vercel の Serverless Functions をローカル環境で開発する手順を紹介します。
 tags:

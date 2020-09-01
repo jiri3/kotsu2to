@@ -1,6 +1,7 @@
 ---
 category: tech
 date: 2020-08-29T04:44:34.676Z
+updatedate: 2020-08-29T04:44:34.676Z
 title: "[NetlifyCMS]NetlifyCMS から投稿した記事の Author、 Committer、メールアドレス について"
 description: >-
   このサイトのソースを管理している Git レポジトリの log を見たところ、GitHub に登録している

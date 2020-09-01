@@ -1,5 +1,6 @@
 ---
 date: 2020-05-03T06:31:21.174Z
+updatedate: 2020-05-03T06:31:21.174Z
 title: Create React Appをインストールする
 description: |-
   React + TypeScript環境で開発してみたかったので、Create React Appを利用してみました。

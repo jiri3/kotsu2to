@@ -1,5 +1,6 @@
 ---
 date: 2020-04-18T11:43:26.749Z
+updatedate: 2020-04-18T11:43:26.749Z
 title: Node.jsに関するメモ
 description: Node.jsに関して調べたことのメモです。
 tags:

@@ -1,5 +1,6 @@
 ---
 date: 2020-07-07T14:14:48.325Z
+updatedate: 2020-07-07T14:14:48.325Z
 title: Google Developers の OAuth 2.0 Playground で Gmail API を利用してみる
 description: |-
   OAuth 2.0 Playground で Gmail API を試しに利用してみました。

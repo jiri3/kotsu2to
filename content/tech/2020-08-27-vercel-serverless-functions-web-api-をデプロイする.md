@@ -1,6 +1,7 @@
 ---
 category: tech
 date: 2020-08-28T10:00:00.000Z
+updatedate: 2020-08-28T10:00:00.000Z
 title: '[Vercel] Serverless Functions(Web API)をデプロイする'
 description: Vercel の Serverless Functions(Web API)をデプロイする手順を説明します。
 tags:

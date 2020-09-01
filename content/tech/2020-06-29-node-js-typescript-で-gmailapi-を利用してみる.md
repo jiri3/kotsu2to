@@ -1,5 +1,6 @@
 ---
 date: 2020-06-30T08:50:41.125Z
+updatedate: 2020-06-30T08:50:41.125Z
 title: Node.js + TypeScript で GmailAPI を利用してみる
 description: Node.js + TypeScript で、Gmail API を使ってメールを取得するまでの実装を説明します。
 tags:

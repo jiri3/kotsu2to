@@ -1,5 +1,6 @@
 ---
 date: 2020-04-25T11:26:28.921Z
+updatedate: 2020-04-25T11:26:28.921Z
 title: Node.jsとTypeScriptでHello Worldする
 description: Node.jsとTypeScriptでHello Worldするまでのメモです。
 tags:

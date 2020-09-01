@@ -1,5 +1,6 @@
 ---
 date: 2020-05-17T06:17:04.254Z
+updatedate: 2020-05-17T06:17:04.254Z
 title: コマンドラインからGithubにpushするまで
 description: Github APIを利用してrepositoryを作成して、そのrepositoryにpushするまでのメモです。
 tags:
