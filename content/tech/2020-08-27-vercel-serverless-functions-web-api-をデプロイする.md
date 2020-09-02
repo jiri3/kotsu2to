@@ -1,8 +1,8 @@
 ---
 category: tech
 date: 2020-08-28T10:00:00.000Z
-updatedate: 2020-08-28T10:00:00.000Z
-title: '[Vercel] Serverless Functions(Web API)をデプロイする'
+updatedate: 2020-09-02T07:05:31.838Z
+title: "[Vercel] Serverless Functions(Web API)をデプロイする"
 description: Vercel の Serverless Functions(Web API)をデプロイする手順を説明します。
 tags:
   - Vercel
@@ -10,11 +10,10 @@ tags:
 [Vercel](https://vercel.com/) とは静的サイトや Serverless Functions をホスティングするサービスです。  
 無料で利用できる枠もあるので、試しに使うのにはもってこいです。
 
-今回は、Hello World をレスポンスとして返す Serverless Functions をVercelを利用してデプロイしてみます。  
 Serverless Functions とは、HTTPリクエストを受け取りレスポンスを返すコードのことのようです[^1]。  
 > With Vercel, you can deploy Serverless Functions, which are pieces of code written with backend languages that take an HTTP request and provide a response.
 
-自信はないですがWeb APIと解釈していいかと思っています。
+今回は、Hello World をレスポンスとして返す Serverless Functions（Web API）をVercelを利用してデプロイしてみます。  
 
 それでは、Serverless Functions の作成手順の説明に進みます。
 
