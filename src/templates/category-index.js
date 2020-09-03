@@ -5,15 +5,16 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 import Tag from "../components/tag"
 import { rhythm } from "../utils/typography"
+import { findLabelByName } from "../properties"
 
-const CategoryIndex = ({ data, location }) => {
+const CategoryIndex = ({ data, pageContext, location }) => {
   const siteTitle = data.site.siteMetadata.title
   const posts = data.allMarkdownRemark.edges
-  const top = data.site.siteMetadata.topPage
+  const seoTitle = findLabelByName(pageContext.category)
   const tags = data.allMarkdownRemark.distinct
   return (
     <Layout location={location} title={siteTitle}>
-      <SEO title={top} />
+      <SEO title={seoTitle} />
       {posts.map(({ node }) => {
         const title = node.frontmatter.title || node.fields.slug
         return (
