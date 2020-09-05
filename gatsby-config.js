@@ -18,6 +18,7 @@ module.exports = {
     },
     menu: [
       { name: "トップページ", url: "/" },
+      { name: "当サイトについて", url: "/pages/about/" },
       { name: findLabelByName("tech"), url: "/tech/" },
       { name: findLabelByName("random_note"), url: "/random_note/" },
       {
