@@ -1,8 +1,8 @@
 ---
 category: pages
 date: 2020-09-05T03:29:37.997Z
-updatedate: 2020-09-05T03:37:17.502Z
-title: About
+updatedate: 2020-09-05T03:43:05.453Z
+title: 当サイトについて
 description: 当サイトについて紹介します。
 ---
 #### 運営者情報
