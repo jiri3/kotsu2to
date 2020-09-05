@@ -4,6 +4,7 @@ const moment = require("moment")
 module.exports = {
   siteMetadata: {
     title: `コツコツと`,
+    yearOfPublished: 2020,
     topPage: `top`,
     author: {
       name: `jiri3`,

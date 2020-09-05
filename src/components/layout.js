@@ -3,8 +3,23 @@ import { Link } from "gatsby"
 import { rhythm, scale } from "../utils/typography"
 import Menu from "./menu"
 import style from "./layout.module.css"
+import { useStaticQuery, graphql } from "gatsby"
 
 const Layout = ({ location, title, children }) => {
+  const data = useStaticQuery(graphql`
+    query {
+      site {
+        siteMetadata {
+          author {
+            name
+          }
+          yearOfPublished
+        }
+      }
+    }
+  `)
+  const { yearOfPublished, author } = data.site.siteMetadata
+
   return (
     <div>
       <div
@@ -23,7 +38,13 @@ const Layout = ({ location, title, children }) => {
             <Menu menuStyle={style} />
           </aside>
         </div>
-        <footer></footer>
+        <footer>
+          <small
+            dangerouslySetInnerHTML={{
+              __html: `&copy; ${yearOfPublished} ${author.name}`,
+            }}
+          ></small>
+        </footer>
       </div>
     </div>
   )
