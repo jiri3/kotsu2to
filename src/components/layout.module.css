@@ -16,7 +16,7 @@ div.layoutContents {
 }
 
 div.layoutContents > main {
-  flex: 0 1 700px;
+  flex: 0 1 730px;
   overflow-x: scroll;
 }
 
