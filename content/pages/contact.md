@@ -1,8 +1,8 @@
 ---
 category: pages
 date: 2020-09-08T06:58:12.920Z
-updatedate: 2020-09-08T06:58:14.354Z
-title: Contact
+updatedate: 2020-09-08T07:04:29.696Z
+title: お問い合わせ
 description: お問い合わせは、下記のフォームよりお願いします。
 ---
 お問い合わせは、下記のフォームよりお願いします。
