@@ -1,6 +1,6 @@
 const path = require(`path`)
 const { createFilePath } = require(`gatsby-source-filesystem`)
-const { getCategoriesName } = require(`./src/properties`)
+const { findLabelByName, getCategoriesName } = require(`./src/properties`)
 
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
@@ -43,6 +43,7 @@ exports.createPages = async ({ graphql, actions }) => {
     posts.forEach((post, index) => {
       const category = post.node.frontmatter.category
       const updatedate = post.node.frontmatter.updatedate
+      const title = post.node.frontmatter.title
       const previous = index === posts.length - 1 ? null : posts[index + 1].node
       const next = index === 0 ? null : posts[index - 1].node
 
@@ -54,6 +55,7 @@ exports.createPages = async ({ graphql, actions }) => {
           context: {
             slug: post.node.fields.slug,
             updatedate: updatedate,
+            pageTitle: title,
             previous,
             next,
           },
@@ -65,6 +67,7 @@ exports.createPages = async ({ graphql, actions }) => {
           component: blogPost,
           context: {
             slug: post.node.fields.slug,
+            pageTitle: title,
             updatedate: updatedate,
           },
         })
@@ -87,6 +90,7 @@ async function createIndexPages(createPage) {
       component: template,
       context: {
         category: category,
+        pageTitle: `${findLabelByName(category)}`,
       },
     })
   })
@@ -116,6 +120,7 @@ async function createTagPage(createPage, graphql) {
       component: tagPage,
       context: {
         tag: tag,
+        pageTitle: `${tag}`,
       },
     })
   })
@@ -123,7 +128,6 @@ async function createTagPage(createPage, graphql) {
 
 exports.onCreateNode = ({ node, actions, getNode }) => {
   const { createNodeField } = actions
-
   if (node.internal.type === `MarkdownRemark`) {
     const value = createFilePath({ node, getNode })
     createNodeField({
@@ -132,4 +136,24 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
       value,
     })
   }
+}
+
+exports.sourceNodes = ({ actions, createNodeId, createContentDigest }) => {
+  const pokemons = [
+    { name: "Pikachu", type: "electric" },
+    { name: "Squirtle", type: "water" },
+  ]
+
+  pokemons.forEach(pokemon => {
+    const node = {
+      name: pokemon.name,
+      type: pokemon.type,
+      id: createNodeId(`Pokemon-${pokemon.name}`),
+      internal: {
+        type: "Pokemon",
+        contentDigest: createContentDigest(pokemon),
+      },
+    }
+    actions.createNode(node)
+  })
 }

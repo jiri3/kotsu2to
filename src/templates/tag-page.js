@@ -4,6 +4,7 @@ import { Link, graphql } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import Tag from "../components/tag"
+import BredcrumbList from "../components/bredcrumb_list"
 import { rhythm } from "../utils/typography"
 
 const TagPageTemplate = ({ data, pageContext, location }) => {
@@ -13,7 +14,15 @@ const TagPageTemplate = ({ data, pageContext, location }) => {
   return (
     <Layout location={location} title={siteTitle}>
       <SEO title={top} />
-      <p>{top}</p>
+      <BredcrumbList location={location}></BredcrumbList>
+      <h1
+        style={{
+          marginTop: rhythm(0.5),
+          marginBottom: 0,
+        }}
+      >
+        {top}
+      </h1>
       {posts.map(({ node }) => {
         const path = node.fields.slug
         const title = node.frontmatter.title || path

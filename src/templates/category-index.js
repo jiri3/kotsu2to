@@ -4,6 +4,7 @@ import { Link, graphql } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import Tag from "../components/tag"
+import BredcrumbList from "../components/bredcrumb_list"
 import { rhythm } from "../utils/typography"
 import { findLabelByName } from "../properties"
 
@@ -15,6 +16,15 @@ const CategoryIndex = ({ data, pageContext, location }) => {
   return (
     <Layout location={location} title={siteTitle}>
       <SEO title={seoTitle} />
+      <BredcrumbList location={location}></BredcrumbList>
+      <h1
+        style={{
+          marginTop: rhythm(0.5),
+          marginBottom: 0,
+        }}
+      >
+        {seoTitle}
+      </h1>
       {posts.map(({ node }) => {
         const title = node.frontmatter.title || node.fields.slug
         return (

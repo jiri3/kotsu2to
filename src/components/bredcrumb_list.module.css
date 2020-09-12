@@ -1,0 +1,8 @@
+.bred {
+  text-decoration: none;
+  box-shadow: none;
+  color: rgba(0, 0, 0, 0.5);
+}
+.bred:after {
+  content: " > ";
+}
