@@ -1,7 +1,7 @@
 ---
 category: tech
 date: 2020-09-13T11:37:35.629Z
-updatedate: 2020-09-13T11:54:19.379Z
+updatedate: 2020-09-13T12:05:52.264Z
 title: "[Vercel] ウェブサイトのOGP情報を取得する Serverless Functions を作成する"
 description: ウェブサイトのOGP 情報を取得する Serverless Functions を作成してみたので紹介します。
 tags:
@@ -33,7 +33,7 @@ URL パラメータに設定した URL の OGP 情報を取得する API を作�
 下記にアクセスすると本サイトの OGP 情報が json で返ってくる事が分かります。  
 https://kotsukotsu-ogp-api.vercel.app/api/ogp?url=https://kotsukotsu.work
 
-[こちら](https://kotsukotsu.work/sandbox/)には、UI 付きのお試しページを作りました。  
+[こちら](/sandbox/)には、UI 付きのお試しページを作りました。  
 URL 入力後、取得ボタンを押下すると、OGP の情報が下部に表示されます。
 
 #### 実装方法の紹介
@@ -73,6 +73,8 @@ axios は`$ npm install`しておいてください。
 次の処理で URL 先の HTML を取得できます。
 
 ```javascript
+import axios from "axios";
+// 省略
 const response = await axios.get(<string>url);
 const data = response.data;
 ```
@@ -92,7 +94,7 @@ const dom = new JSDOM(data);
 const meta = dom.window.document.querySelectorAll("head > meta");
 ```
 
-次に meta タグの内、OGP を抽出し、連想配列に変換します。  
+次は meta タグの内、OGP を抽出し、連想配列に変換します。  
 reduce を利用するとすっきりかけます。  
 変換した連想配列をレスポンス(json)に設定するだけで json 形式でレスポンスを返す事ができます。
 
@@ -130,6 +132,7 @@ Access-Control-Allow-Origin の設定を行いました。
 プロジェクトのルートに vercel.json を作成し次の設定を行います。
 
 ```javascript
+// vercel.json
 {
   "routes": [
     {
