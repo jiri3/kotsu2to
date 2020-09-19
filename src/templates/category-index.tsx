@@ -7,10 +7,9 @@ import Tag from "../components/tag"
 import BredcrumbList from "../components/bredcrumb_list"
 import { rhythm } from "../utils/typography"
 import { findLabelByName } from "../properties"
-import { CategoryIndexQuery } from "../../types/graphql-types"
 
 interface Props extends PageProps {
-  data: CategoryIndexQuery
+  data: any
   pageContext: { category: string }
 }
 

@@ -6,9 +6,8 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 import { rhythm } from "../utils/typography"
 import { getCategoriesName, findLabelByName } from "../properties.js"
-import { IndexPageQuery } from "../../types/graphql-types"
 interface Props extends PageProps {
-  data: IndexPageQuery
+  data: any
 }
 
 const BlogIndex: React.FC<Props> = ({ data, location }) => {

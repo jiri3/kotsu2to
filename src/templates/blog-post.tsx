@@ -6,10 +6,9 @@ import SEO from "../components/seo"
 import Tag from "../components/tag"
 import BredcrumbList from "../components/bredcrumb_list"
 import { rhythm } from "../utils/typography"
-import { BlogPostQuery } from "../../types/graphql-types"
 
 interface Props extends PageProps {
-  data: BlogPostQuery
+  data: any
   pageContext: { category: string; previous: any; next: any }
 }
 
