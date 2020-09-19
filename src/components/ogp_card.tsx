@@ -1,11 +1,27 @@
 import React from "react"
 
-export default class OgpCardContainer extends React.Component {
+interface State {
+  value: string
+  input: string
+  ogp: Ogp
+}
+interface Ogp {
+  title: string
+  description: string
+  image: string
+  url: string
+  site_name: string
+  type: string
+  locale: string
+}
+
+export default class OgpCardContainer extends React.Component<{}, State> {
   constructor(props) {
     super(props)
     this.handleChange = this.handleChange.bind(this)
     this.handleClick = this.handleClick.bind(this)
     this.state = {
+      value: ``,
       input: ``,
       ...this.getInitOgpValue(),
     }
@@ -55,7 +71,7 @@ export default class OgpCardContainer extends React.Component {
   }
 }
 
-class OgpLayout extends React.Component {
+class OgpLayout extends React.Component<{ ogp: Ogp }> {
   render() {
     return (
       <div>

@@ -1,5 +1,5 @@
 import React from "react"
-import { Link, graphql } from "gatsby"
+import { Link, graphql, PageProps } from "gatsby"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
@@ -7,8 +7,14 @@ import Tag from "../components/tag"
 import BredcrumbList from "../components/bredcrumb_list"
 import { rhythm } from "../utils/typography"
 import { findLabelByName } from "../properties"
+import { CategoryIndexQuery } from "../../types/graphql-types"
 
-const CategoryIndex = ({ data, pageContext, location }) => {
+interface Props extends PageProps {
+  data: CategoryIndexQuery
+  pageContext: { category: string }
+}
+
+const CategoryIndex: React.FC<Props> = ({ data, pageContext, location }) => {
   const siteTitle = data.site.siteMetadata.title
   const posts = data.allMarkdownRemark.edges
   const seoTitle = findLabelByName(pageContext.category)
@@ -64,7 +70,7 @@ const CategoryIndex = ({ data, pageContext, location }) => {
 export default CategoryIndex
 
 export const pageQuery = graphql`
-  query($category: String!) {
+  query CategoryIndex($category: String!) {
     site {
       siteMetadata {
         title

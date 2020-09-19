@@ -1,15 +1,15 @@
-h2[name="categoryName"] > a.link {
+h2.categoryName > a.link {
   box-shadow: none;
   text-decoration: none;
   color: inherit;
 }
 
-h2[name="categoryName"] > a.link:hover {
+h2.categoryName > a.link:hover {
   box-shadow: 0 1px 0 0 currentColor;
   text-decoration: none;
   opacity: 0.9;
 }
 
-div[name="categoryArea"] > div.toCategory {
+div.categoryArea > div.toCategory {
   text-align: right;
 }

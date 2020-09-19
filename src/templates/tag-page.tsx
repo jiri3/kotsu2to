@@ -1,13 +1,19 @@
 import React from "react"
-import { Link, graphql } from "gatsby"
+import { Link, graphql, PageProps } from "gatsby"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import Tag from "../components/tag"
 import BredcrumbList from "../components/bredcrumb_list"
 import { rhythm } from "../utils/typography"
+import { TagPageBySlugQuery } from "../../types/graphql-types"
 
-const TagPageTemplate = ({ data, pageContext, location }) => {
+interface Props extends PageProps {
+  data: TagPageBySlugQuery
+  pageContext: { tag: string }
+}
+
+const TagPageTemplate: React.FC<Props> = ({ data, pageContext, location }) => {
   const siteTitle = data.site.siteMetadata.title
   const posts = data.allMarkdownRemark.edges
   const top = `Tag: ${pageContext.tag}`

@@ -5,7 +5,7 @@ const { findLabelByName, getCategoriesName } = require(`./src/properties`)
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
 
-  const blogPost = path.resolve(`./src/templates/blog-post.js`)
+  const blogPost = path.resolve(`./src/templates/blog-post.tsx`)
   const result = await graphql(
     `
       {
@@ -83,7 +83,7 @@ exports.createPages = async ({ graphql, actions }) => {
 }
 
 async function createIndexPages(createPage) {
-  const template = path.resolve(`./src/templates/category-index.js`)
+  const template = path.resolve(`./src/templates/category-index.tsx`)
   getCategoriesName().forEach(category => {
     createPage({
       path: `${category}/`,
@@ -97,7 +97,7 @@ async function createIndexPages(createPage) {
 }
 
 async function createTagPage(createPage, graphql) {
-  const tagPage = path.resolve(`./src/templates/tag-page.js`)
+  const tagPage = path.resolve(`./src/templates/tag-page.tsx`)
   const tagResult = await graphql(
     `
       {

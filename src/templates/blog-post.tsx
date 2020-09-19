@@ -1,13 +1,19 @@
 import React from "react"
-import { Link, graphql } from "gatsby"
+import { Link, graphql, PageProps } from "gatsby"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import Tag from "../components/tag"
 import BredcrumbList from "../components/bredcrumb_list"
 import { rhythm } from "../utils/typography"
+import { BlogPostQuery } from "../../types/graphql-types"
 
-const BlogPostTemplate = ({ data, pageContext, location }) => {
+interface Props extends PageProps {
+  data: BlogPostQuery
+  pageContext: { category: string; previous: any; next: any }
+}
+
+const BlogPostTemplate: React.FC<Props> = ({ data, pageContext, location }) => {
   const post = data.markdownRemark
   const siteTitle = data.site.siteMetadata.title
   const { previous, next } = pageContext
@@ -81,7 +87,7 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
 export default BlogPostTemplate
 
 export const pageQuery = graphql`
-  query BlogPostBySlug($slug: String!) {
+  query BlogPost($slug: String!) {
     site {
       siteMetadata {
         title

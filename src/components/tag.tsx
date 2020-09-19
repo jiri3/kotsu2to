@@ -1,7 +1,11 @@
 import React from "react"
 import style from "./tag.module.css"
 
-const Tag = ({ tags }) => {
+interface Props {
+  tags: string[]
+}
+
+const Tag: React.FC<Props> = ({ tags }) => {
   if (!tags || tags.length < 1) {
     return <ul className={style.tagContainer}></ul>
   }

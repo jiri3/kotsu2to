@@ -3,9 +3,14 @@ import { Link } from "gatsby"
 import { rhythm, scale } from "../utils/typography"
 import Menu from "./menu"
 import style from "./layout.module.css"
-import { useStaticQuery, graphql } from "gatsby"
+import { useStaticQuery, graphql, PageProps } from "gatsby"
 
-const Layout = ({ location, title, children }) => {
+interface Props {
+  location: Location
+  title: string
+}
+
+const Layout: React.FC<Props> = ({ location, title, children }) => {
   const data = useStaticQuery(graphql`
     query {
       site {
@@ -52,7 +57,7 @@ const Layout = ({ location, title, children }) => {
 
 export default Layout
 
-function getHeader(location, title) {
+function getHeader(location: Location, title: string) {
   const rootPath = `${__PATH_PREFIX__}/`
 
   if (location.pathname === rootPath) {

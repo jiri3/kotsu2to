@@ -1,12 +1,17 @@
 import React from "react"
+import { PageProps } from "gatsby"
 import { Link, graphql } from "gatsby"
 import style from "./index.module.css"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import { rhythm } from "../utils/typography"
 import { getCategoriesName, findLabelByName } from "../properties.js"
+import { IndexPageQuery } from "../../types/graphql-types"
+interface Props extends PageProps {
+  data: IndexPageQuery
+}
 
-const BlogIndex = ({ data, location }) => {
+const BlogIndex: React.FC<Props> = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata.title
   const group = data.allMarkdownRemark.group
   const top = data.site.siteMetadata.topPage
@@ -26,8 +31,8 @@ const BlogIndex = ({ data, location }) => {
     const nodes = groupbyCategory[category]
     if (nodes) {
       return (
-        <div key={`categoryArea_${index}`} name="categoryArea">
-          <h2 name="categoryName">
+        <div key={`categoryArea_${index}`} className={style.categoryArea}>
+          <h2 className={style.categoryName}>
             <Link className={style.link} to={category}>
               {findLabelByName(category)}
             </Link>
@@ -83,7 +88,7 @@ const BlogIndex = ({ data, location }) => {
 export default BlogIndex
 
 export const pageQuery = graphql`
-  query {
+  query IndexPage {
     site {
       siteMetadata {
         title

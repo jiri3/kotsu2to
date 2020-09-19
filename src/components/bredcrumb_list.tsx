@@ -1,8 +1,11 @@
-import React from "react"
+import React, { ReactElement } from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import style from "./bredcrumb_list.module.css"
 
-export default function BredcrumbList(props) {
+interface Props {
+  location: Location
+}
+const BredcrumbList: React.FC<Props> = props => {
   const { location } = props
   // GraphQLの結果を格納する
   const { site, allSitePage } = useData()
@@ -75,3 +78,5 @@ function useData() {
     }
   `)
 }
+
+export default BredcrumbList

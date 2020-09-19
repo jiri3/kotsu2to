@@ -1,7 +1,11 @@
 import React from "react"
 import { Link, useStaticQuery, graphql } from "gatsby"
 
-const Menu = ({ menuStyle }) => {
+interface Props {
+  menuStyle: IClassNames
+}
+
+const Menu: React.FC<Props> = ({ menuStyle }) => {
   const data = useData()
   const menu = data.site.siteMetadata.menu
   const _menuStyle = menuStyle ? menuStyle : {}
@@ -28,7 +32,7 @@ export default Menu
 
 function useData() {
   return useStaticQuery(graphql`
-    query {
+    query Menu {
       site {
         siteMetadata {
           menu {

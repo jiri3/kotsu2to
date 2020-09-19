@@ -1,10 +1,15 @@
 import React from "react"
 import { graphql } from "gatsby"
-
+import { PageProps } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
+import { ErrorPageQuery } from "../../types/graphql-types"
 
-const NotFoundPage = ({ data, location }) => {
+interface Props extends PageProps {
+  data: ErrorPageQuery
+}
+
+const NotFoundPage: React.FC<Props> = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata.title
 
   return (
@@ -19,7 +24,7 @@ const NotFoundPage = ({ data, location }) => {
 export default NotFoundPage
 
 export const pageQuery = graphql`
-  query {
+  query ErrorPage {
     site {
       siteMetadata {
         title
