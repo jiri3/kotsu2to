@@ -76,10 +76,10 @@ exports.createPages = async ({ graphql, actions }) => {
   })
 
   // Create index pages every category
-  createIndexPages(createPage)
+  await createIndexPages(createPage)
 
   // Create tag category pages
-  createTagPage(createPage, graphql)
+  await createTagPage(createPage, graphql)
 }
 
 async function createIndexPages(createPage) {
