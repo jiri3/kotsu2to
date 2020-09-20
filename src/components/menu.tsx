@@ -7,7 +7,7 @@ interface Props {
 
 const Menu: React.FC<Props> = ({ menuStyle }) => {
   const data = useData()
-  const menu = data.site.siteMetadata.menu
+  const menu:[] = data.site.siteMetadata.menu
   const _menuStyle = menuStyle ? menuStyle : {}
 
   return (

@@ -1,4 +1,4 @@
-import React, { ReactElement } from "react"
+import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import style from "./bredcrumb_list.module.css"
 
@@ -10,7 +10,7 @@ const BredcrumbList: React.FC<Props> = props => {
   // GraphQLの結果を格納する
   const { site, allSitePage } = useData()
   // サイトのパスリストを生成する
-  const pathList = allSitePage.nodes.map(({ path }) => encodeURI(path))
+  const pathList = (allSitePage.nodes as []).map(({ path }) => encodeURI(path))
 
   // 階層構造を生成する
   const breadCrumbInfo = location.pathname
@@ -55,7 +55,7 @@ const BredcrumbList: React.FC<Props> = props => {
   )
 }
 
-function convertToPageInfo(path, pageTitle, isExistPage) {
+function convertToPageInfo(path:string, pageTitle:string, isExistPage:boolean) {
   return { path: path, pageTitle: pageTitle, isExistPage: isExistPage }
 }
 

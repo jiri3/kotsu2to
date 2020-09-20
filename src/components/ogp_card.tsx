@@ -16,7 +16,7 @@ interface Ogp {
 }
 
 export default class OgpCardContainer extends React.Component<{}, State> {
-  constructor(props) {
+  constructor(props:any) {
     super(props)
     this.handleChange = this.handleChange.bind(this)
     this.handleClick = this.handleClick.bind(this)
@@ -41,7 +41,7 @@ export default class OgpCardContainer extends React.Component<{}, State> {
     }
   }
 
-  handleChange(e) {
+  handleChange(e: React.ChangeEvent<HTMLInputElement>) {
     this.setState({ input: e.target.value })
   }
 
@@ -81,7 +81,7 @@ class OgpLayout extends React.Component<{ ogp: Ogp }> {
               <td>タグ</td>
               <td>値</td>
             </tr>
-            {Object.keys(this.props.ogp)
+            {(Object.keys(this.props.ogp) as (keyof Ogp)[])
               .sort()
               .map(value => {
                 return (
@@ -111,7 +111,7 @@ class OgpLayout extends React.Component<{ ogp: Ogp }> {
   }
 }
 
-async function fetchOgp(url) {
+async function fetchOgp(url:string) {
   try {
     const responce = await fetch(
       `https://kotsukotsu-ogp-api.vercel.app/api/ogp?url=${url}`,
