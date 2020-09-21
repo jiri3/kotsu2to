@@ -1,7 +1,7 @@
 ---
 category: tech
 date: 2020-09-21T13:47:34.345Z
-updatedate: 2020-09-21T14:24:02.252Z
+updatedate: 2020-09-21T14:32:25.350Z
 title: Victory で株価チャート（ローソク足）を描くための Tips
 description: Victory（React & React Native 用のチャート描画ライブラリ） で株価チャート（ローソク足）を描くための Tips を紹介します。
 tags:
@@ -134,11 +134,12 @@ VictoryCandlestick に場合は、次のオブジェクトの配列を設定し�
 
 ![ローソク足チャート1](/media/victory-candlestick-2.png)
 
-実装は次のようになります。  
-上記の実装に対して、VictoryCandlestick 次のプロパティの設定を追加します。
+上記の実装に対して、VictoryCandlestick に次のプロパティの設定を追加します。
 
 - labelComponent
 - labels
+
+実装は次の通りです。  
 
 ```javascript
 ...
