@@ -26,9 +26,9 @@ export default class Sandbox extends React.Component<PageProps> {
     return (
       <Layout location={location} title="コツコツと">
         <SEO description="お砂場です。" title="SandBox"></SEO>
-        <h3>OGPタグの取得</h3>
+        <h3 id="ogp">OGPタグの取得</h3>
         <OgpCardContainer></OgpCardContainer>
-        <h3>ローソク足チャート</h3>
+        <h3 id="candlestick">ローソク足チャート</h3>
         <CandleSticks></CandleSticks>
       </Layout>
     )
