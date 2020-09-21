@@ -7,6 +7,7 @@ import {
   VictoryAxis,
   VictoryCandlestick,
   VictoryTheme,
+  VictoryTooltip,
 } from "victory"
 import moment from "moment"
 import SEO from "../components/seo"
@@ -36,7 +37,7 @@ export default class Sandbox extends React.Component<PageProps> {
 
 const CandleSticks: React.FC<{}> = (props) => {
   return (
-    <div>
+    <div style={{ width: "80%" }}>
       <VictoryChart
         domainPadding={{ x: 25 }}
         scale={{ x: "time" }}
@@ -46,22 +47,23 @@ const CandleSticks: React.FC<{}> = (props) => {
         <VictoryAxis tickFormat={(t) => moment(t).format("HH:mm")} />
         <VictoryCandlestick
           candleColors={{ positive: "#c43a31", negative: "#2f8be0" }}
-          data={[
-            {
-              x: new Date(2020, 8, 20, 9, 0),
-              open: 1,
-              close: 2,
-              high: 3,
-              low: 0,
-            },
-            {
-              x: new Date(2020, 8, 20, 9, 5),
-              open: 2,
-              close: 1,
-              high: 3,
-              low: 0,
-            },
-          ]}
+          data={getCandleSticksTestData()}
+          labels={({ datum }): any => {
+            return [
+              `時間: ${moment(datum.x).format("HH:mm")}`,
+              `始値: ${datum.open}`,
+              `安値: ${datum.low}`,
+              `高値: ${datum.high}`,
+              `終値: ${datum.close}`,
+            ]
+          }}
+          labelComponent={
+            <VictoryTooltip
+              style={{ textAnchor: "start" }}
+              flyoutPadding={{ top: 0, bottom: 10, left: 10, right: 20 }}
+              constrainToVisibleArea
+            />
+          }
         />
       </VictoryChart>
     </div>
