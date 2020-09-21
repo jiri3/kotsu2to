@@ -1,7 +1,7 @@
 ---
 category: tech
 date: 2020-09-21T13:47:34.345Z
-updatedate: 2020-09-21T14:03:46.307Z
+updatedate: 2020-09-21T14:24:02.252Z
 title: Victory で株価チャート（ローソク足）を描くための Tips
 description: Victory（React & React Native 用のチャート描画ライブラリ） で株価チャート（ローソク足）を描くための Tips を紹介します。
 tags:
@@ -132,6 +132,8 @@ VictoryCandlestick に場合は、次のオブジェクトの配列を設定し�
 次の図で示したようにツールチップで株価を表示するための実装を紹介します。  
 [こちら](https://github.com/jiri3/kotsu2to/commit/6f99fccd3b006b543433bf40ad58c5ed348ca827)は関連するコミットです。
 
+![ローソク足チャート1](/media/victory-candlestick-2.png)
+
 実装は次のようになります。  
 上記の実装に対して、VictoryCandlestick 次のプロパティの設定を追加します。
 
@@ -200,7 +202,7 @@ PC ならばマウスポインタを中心にして、マウスホイールの�
 カーソル機能は、チャート上に座標付きのカーソルを表示する機能です。  
 サンプルは[公式ページ](https://formidable.com/open-source/victory/docs/victory-cursor-container)を参照ください。
 
-これらは、VictoryChart の containerComponent の設定だけで簡単に実装可能です。
+これらは、VictoryChart の containerComponent の設定だけで簡単に実装可能です。  
 ズーム機能ならば、containerComponent に VictoryZoomContainer を
 カーソル機能ならば、containerComponent に VictoryCursorContainer を設定します。
 
