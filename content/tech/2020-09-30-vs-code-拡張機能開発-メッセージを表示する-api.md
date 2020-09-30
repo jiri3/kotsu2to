@@ -1,7 +1,7 @@
 ---
 category: tech
 date: 2020-09-30T12:19:22.489Z
-updatedate: 2020-09-30T13:24:34.031Z
+updatedate: 2020-09-30T13:41:14.933Z
 title: "[VS Code 拡張機能開発] メッセージを表示する API"
 description: Visual Studio Code（VS Code） 拡張機能の開発において、メッセージを表示する API について紹介します。
 tags:
@@ -53,17 +53,15 @@ vscode.window.showErrorMessage("Error Message!")
 警告 / エラーを表示させる場合は、メソッド名をそれぞれのものに変更するだけです。
 
 ##### ダイアログにボタンを配置する
-ダイアログ中にボタンを表示することができます。
-
-![ボタンを表示する](/media/vscode-extension-button.png)
-
-どのボタンが押されたかの判別は、Promise （Thenable） の resolve に押下されたボタン名がセットされるので、  
-then のコールバック関数の引数から判別可能です。
+ダイアログ中にボタンを表示させる場合は次のAPIを利用します。
 
 ```javascript
 // API
 showInformationMessage(message: string, ...items: string[]): Thenable<string | undefined>
 ```
+
+このAPIの戻り値の型の Thenable は Promise と同等です。  
+ボタンを押下すると、Promise の resolve に押下されたボタン名がセットされるので、then のコールバック関数の引数の値からどのボタンが押下されたか判別できます。
 
 ```javascript
 const message = vscode.window.showInformationMessage(
@@ -77,8 +75,10 @@ message.then((value) => {
 });
 ```
 
+![ボタンを表示する](/media/vscode-extension-button.png)
+
 ##### モーダル表示する
-モーダル表示させたい場合は次のAPIを利用します。
+モーダル表示させる場合は次のAPIを利用します。
 
 ```javascript
 // API
@@ -93,7 +93,7 @@ const message = vscode.window.showInformationMessage("Information Message!", {
 
 ![モーダル表示](/media/vscode-extension-modal.png)
 
-上記のAPIの第 3 引数を設定すると、ボタンを配置することができます。  
+さらに、上記のAPIの第 3 引数を設定すると、ボタンを配置することができます。  
 また、ダイアログをキャンセル（ESC 押下）した場合、トリガーしたい（押下したことにしたい）ボタンを設定することもできます。  
 isCloseAffordance:true に設定したボタンが、ESC ボタン押下時にトリガーされるボタンです。  
 この機能は、モーダル表示時のみ有効です。
@@ -143,6 +143,7 @@ const message = vscode.window.setStatusBarMessage(
 消したい場合は、APIの戻り値を受け取って、その dispose メソッドを呼び出す必要があります。
 
 ```javascript
+// API
 setStatusBarMessage(text: string): Disposable
 ```
 
