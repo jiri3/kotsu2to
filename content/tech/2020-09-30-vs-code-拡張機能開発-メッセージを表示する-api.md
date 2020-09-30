@@ -1,7 +1,7 @@
 ---
 category: tech
 date: 2020-09-30T12:19:22.489Z
-updatedate: 2020-09-30T13:05:26.825Z
+updatedate: 2020-09-30T13:24:34.031Z
 title: "[VS Code 拡張機能開発] メッセージを表示する API"
 description: Visual Studio Code（VS Code） 拡張機能の開発において、メッセージを表示する API について紹介します。
 tags:
@@ -53,7 +53,7 @@ vscode.window.showErrorMessage("Error Message!")
 警告 / エラーを表示させる場合は、メソッド名をそれぞれのものに変更するだけです。
 
 ##### ダイアログにボタンを配置する
-ダイアログ中に任意のボタンを表示させることができます。
+ダイアログ中にボタンを表示することができます。
 
 ![ボタンを表示する](/media/vscode-extension-button.png)
 
@@ -61,7 +61,11 @@ vscode.window.showErrorMessage("Error Message!")
 then のコールバック関数の引数から判別可能です。
 
 ```javascript
-// API:showInformationMessage(message: string, ...items: string[]): Thenable<string | undefined>
+// API
+showInformationMessage(message: string, ...items: string[]): Thenable<string | undefined>
+```
+
+```javascript
 const message = vscode.window.showInformationMessage(
   "Information Message!",
   "Button1",
@@ -77,7 +81,11 @@ message.then((value) => {
 モーダル表示させたい場合は次のAPIを利用します。
 
 ```javascript
-// API:showInformationMessage<T extends MessageItem>(message: string, ...items: T[]): Thenable<T | undefined>
+// API
+showInformationMessage<T extends MessageItem>(message: string, options: MessageOptions, ...items: T[]): Thenable<T | undefined>;
+```
+
+```javascript
 const message = vscode.window.showInformationMessage("Information Message!", {
   modal: true,
 });
@@ -107,14 +115,18 @@ const message = vscode.window.showInformationMessage(
 
 ![ステータスバー](/media/vscode-extension-status-bar.png)
 
-ステータスバーにメッセージを表示する場合は、次のように実装します。
+ステータスバーにメッセージを表示する場合は、次のAPIを利用します。
+
+```javascript
+// API
+setStatusBarMessage(text: string, hideAfterTimeout: number): Disposable
+```
 
 ```javascript
 import * as vscode from "vscode";
 
 ...
 // ステータスバーに表示する場合
-// API:setStatusBarMessage(text: string, hideAfterTimeout: number): Disposable
 const message = vscode.window.setStatusBarMessage(
   "status bar message",
   5000
@@ -124,7 +136,8 @@ const message = vscode.window.setStatusBarMessage(
 ![ステータスバーメッセージ](/media/vscode-extension-status-bar-message.png)
 
 第 1 引数が表示させるメッセージです。  
-そして、第 2 引数はステータスバーにメッセージを表示させる秒数(msec)です。指定した秒数を経過するとメッセージは自動で消えます。  
+そして、第 2 引数はステータスバーにメッセージを表示させる秒数(msec)です。
+指定した秒数を経過するとメッセージは自動で消えます。  
 第 2 引数を設定しない呼び出し方（下記の API）もありますが、 
 この場合はステータスバーからメッセージが自動で消えません。  
 消したい場合は、APIの戻り値を受け取って、その dispose メソッドを呼び出す必要があります。
@@ -136,3 +149,6 @@ setStatusBarMessage(text: string): Disposable
 ---
 
 今回は、VS Code 拡張機能の開発において、メッセージ表示の API について紹介しました。
+
+参考
+- [VS Code API](https://code.visualstudio.com/api/references/vscode-api)
