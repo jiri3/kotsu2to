@@ -1,9 +1,9 @@
 ---
 category: tech
 date: 2020-12-09T08:08:52.682Z
-updatedate: 2020-12-09T08:25:37.330Z
-title: "[Visual Studio Code] ソースコード中の変数名の変更などまとめてテキストを編集する方法"
-description: VS Code にてソースコード中の変数名の変更などまとめてテキストを編集する方法を紹介します。マルチカーソル機能は便利です。
+updatedate: 2020-12-09T08:28:07.424Z
+title: "[Visual Studio Code] ソースコード中の変数名の変更など、まとめてテキストを編集する方法"
+description: VS Code にてソースコード中の変数名の変更など、まとめてテキストを編集する方法を紹介します。マルチカーソル機能は便利です。
 tags:
   - Visual Studio Code
 ---
