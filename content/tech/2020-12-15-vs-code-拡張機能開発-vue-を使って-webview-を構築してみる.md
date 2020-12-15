@@ -1,7 +1,7 @@
 ---
 category: tech
 date: 2020-12-15T02:41:07.903Z
-updatedate: 2020-12-15T02:46:49.094Z
+updatedate: 2020-12-15T02:55:21.555Z
 title: "[VS Code 拡張機能開発]Vue を使って Webview を構築してみる"
 description: Visual Studio Code（VS Code） 拡張機能の開発において、Vue を使って Webview
   を構築してみました。その環境構築方法について紹介します。
@@ -13,7 +13,7 @@ Visual Studio Code（VS Code） 拡張機能の開発において、Vue を使�
 また、構築した環境は Vue(SFC) + TypeScript の環境です。  
 [Github](https://github.com/jiri3/vscode-extension-practice/tree/master/vue-try) にて公開しています。
 
-![サンプルとして構築したWebview](media/vscode-extension-vue-sample.gif)
+![サンプルとして構築したWebview](/media/vscode-extension-vue-sample.gif)
 
 #### 環境構築のポイント
 
@@ -23,7 +23,7 @@ webpack でバンドルした js ファイルを生成することがポイン�
 
 #### npm パッケージの依存性
 
-VS Code 拡張機能開発のジェネレーター実行後（`$ yo code`後）、下記のパッケージを追加しました。
+VS Code 拡張機能開発のジェネレーター実行後（`$ yo code`後）、下記のパッケージを追加しました（`$ yarn add`しました）。
 
 ##### [webpack](https://webpack.js.org/)
 
@@ -45,7 +45,7 @@ webpack は、Javascript と JSON ファイルしかデフォルトでは処理�
 Loader を追加して他の形式のファイルも処理できるよう設定します。  
 **ts-loader**は TypeScript 用です。  
 [vue-loader](https://vue-loader-v14.vuejs.org/ja/)は、
-[SFC（単一ファイルコンポーネント）](https://jp.vuejs.org/v2/guide/single-file-components.html)で Vue コンポーネントを開発するために利用します。また、**vue-template-compiler**は、Vue Loader の公式サイトの[Manual Setup]に従いインストールしています。vue-template-compiler は vue パッケージ とバージョンの同期をとる必要があるとのことです。  
+[SFC（単一ファイルコンポーネント）](https://jp.vuejs.org/v2/guide/single-file-components.html)で Vue コンポーネントを開発するために利用します。また、**vue-template-compiler**は、Vue Loader の公式サイトの[Manual Setup](https://vue-loader.vuejs.org/guide/#manual-setup)に従いインストールしています。vue-template-compiler は vue パッケージ とバージョンの同期をとる必要があるとのことです。  
 **css-loader**、**style-loader**は css 用です。[こちら（ics.media）](https://ics.media/entry/17376/)が参考になりました。
 
 ##### Vue
