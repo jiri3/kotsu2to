@@ -1,7 +1,7 @@
 ---
 category: tech
 date: 2020-12-15T02:41:07.903Z
-updatedate: 2020-12-15T02:55:21.555Z
+updatedate: 2020-12-15T13:49:50.561Z
 title: "[VS Code 拡張機能開発]Vue を使って Webview を構築してみる"
 description: Visual Studio Code（VS Code） 拡張機能の開発において、Vue を使って Webview
   を構築してみました。その環境構築方法について紹介します。
@@ -217,7 +217,7 @@ export function deactivate() {}
 
 拡張機能は`F5`でデバック起動できますが、その前に`$ webpack`を実行して、
 html に読み込ませる js ファイルを生成しておく必要があります。  
-サンプルで構築した環境は npm script を定義しておいたので、`$ npm run develop`
+サンプルで構築した環境は npm script を定義しておいたので、`$ yarn develop`
 で`$ npx webpack --watch`が実行できるようにしています。
 
 ---
