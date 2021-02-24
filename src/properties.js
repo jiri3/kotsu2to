@@ -1,6 +1,7 @@
 const categories = {
   tech: { label: "テック" },
   random_note: { label: "雑記" },
+  scraps: {label:"スクラップ"}
 }
 
 const getCategoriesName = () => Object.keys(categories)

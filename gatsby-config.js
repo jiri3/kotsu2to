@@ -21,6 +21,7 @@ module.exports = {
       { name: "当サイトについて", url: "/pages/about/" },
       { name: findLabelByName("tech"), url: "/tech/" },
       { name: findLabelByName("random_note"), url: "/random_note/" },
+      { name: findLabelByName("scraps"), url: "/scraps/" },
       {
         name: "免責事項・プライバシーポリシー",
         url:

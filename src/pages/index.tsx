@@ -25,6 +25,7 @@ const BlogIndex: React.FC<Props> = ({ data, location }) => {
     }
     return acc
   }, {})
+  console.log(groupbyCategory, group)
   const postList = getCategoriesName().map((category, index) => {
     const nodes = groupbyCategory[category]
     if (nodes) {
@@ -35,7 +36,7 @@ const BlogIndex: React.FC<Props> = ({ data, location }) => {
               {findLabelByName(category)}
             </Link>
           </h2>
-          {nodes.map(node => {
+          {nodes.map((node) => {
             return (
               <article key={node.fields.slug}>
                 <header>
@@ -94,7 +95,9 @@ export const pageQuery = graphql`
       }
     }
     allMarkdownRemark(
-      filter: { frontmatter: { category: { in: ["tech", "random_note"] } } }
+      filter: {
+        frontmatter: { category: { in: ["tech", "random_note", "scraps"] } }
+      }
       sort: { fields: [frontmatter___date], order: DESC }
     ) {
       group(field: frontmatter___category, limit: 3) {
