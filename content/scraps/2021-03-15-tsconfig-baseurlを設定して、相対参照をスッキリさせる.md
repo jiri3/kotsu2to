@@ -1,7 +1,7 @@
 ---
 category: scraps
 date: 2021-03-15T04:24:03.929Z
-updatedate: 2021-03-15T05:44:45.171Z
+updatedate: 2021-03-15T05:48:50.651Z
 title: "[tsconfig] baseUrlを設定して、相対参照をスッキリさせる"
 description: tsconfig.jsonのbaseUrlを設定すると相対パスの../を省略できる。
 tags:
@@ -24,7 +24,7 @@ tsconfig.jsonのbaseUrlを設定すると相対パスの../を省略できる。
 
 
 ```json
-// tsconfig.jsの設定
+// tsconfig.jsonの設定
 {
   "compilerOptions": {
     ...省略
