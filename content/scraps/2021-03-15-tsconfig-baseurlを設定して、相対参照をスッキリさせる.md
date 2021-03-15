@@ -1,9 +1,9 @@
 ---
 category: scraps
 date: 2021-03-15T04:24:03.929Z
-updatedate: 2021-03-15T05:27:08.162Z
+updatedate: 2021-03-15T05:44:45.171Z
 title: "[tsconfig] baseUrlを設定して、相対参照をスッキリさせる"
-description: ""
+description: tsconfig.jsonのbaseUrlを設定すると相対パスの../を省略できる。
 tags:
   - TypeScript
 ---
@@ -37,6 +37,8 @@ tsconfig.jsonのbaseUrlを設定すると相対パスの../を省略できる。
 ```pages/index.tsx```で```componets/Layout.tsx```をimportする場合
 
 ```javascript
+// pages/index.tsx
+
 // before
 import Layout from "../components/Layout";
 
@@ -44,5 +46,5 @@ import Layout from "../components/Layout";
 import Layout from "components/Layout";
 ```
 
-##### 参考
+#### 参考
 * https://www.typescriptlang.org/tsconfig#baseUrl
