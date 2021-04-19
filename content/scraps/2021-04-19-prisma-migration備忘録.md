@@ -1,12 +1,12 @@
 ---
 category: scraps
 date: 2021-04-19T13:31:21.479Z
-updatedate: 2021-04-19T13:55:07.220Z
-title: "[prisma] migration備忘録"
+updatedate: 2021-04-19T14:03:15.926Z
+title: "[Prisma] migration備忘録"
 description: migration備忘録
 tags:
-  - prisma
-  - psql
+  - Prisma
+  - PostgreSQL
 ---
 開発中のDBに対してprismaのmigrateを使うのは怖い気がするので、別のDBを作成しておく。
 
@@ -23,7 +23,7 @@ prismaのmigrationを実行する。
 事前に、```prisma/schema.prisma```を作成しておく。
 
 ```bash
-# 初回はリセットしておく
+# 初回はリセットを実行する
 # リセットするとDBにmigrationの記録をとるテーブルが作成される
 $ yarn prisma migrate reset
 
@@ -34,7 +34,8 @@ migrate devを実行すると、```prisma/migrations/yyyymmddhhmmss_hoge_fuga```
 
 あとは、このsqlを開発中のDBで実行する。
 
-なんとなく、もっといい使い方がありそうな気がするので、そのうちドキュメントを読みたいところ。
+なんとなく、もっといい使い方がありそうな気がするので、そのうちドキュメントを
+しっかり読みたいところ。
 
 #### 参考
 * https://www.prisma.io/docs/reference/api-reference/command-reference
