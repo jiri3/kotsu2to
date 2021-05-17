@@ -1,7 +1,7 @@
 ---
 category: tech
 date: 2020-11-27T04:50:46.961Z
-updatedate: 2020-11-27T04:50:49.118Z
+updatedate: 2021-05-17T00:48:02.779Z
 title: Visual Studio Code から npm script を実行する方法
 description: Visual Studio Code から npm script を実行する方法を紹介します。
 tags:
@@ -78,3 +78,11 @@ $ npm run スクリプト名
 ---
 
 今回は、Visual Studio Code から npm script を実行する方法を紹介しました。
+
+#### 追記（2021/05/17）
+VS Code ver1.55あたりから、ExplorerからNPM Scriptsが消えていました。  
+（気づいたのがver1.55なのでもう少し前から発生していたかもしれません。）  
+調べてみたところ、どうやら不具合だったようで、ver1.56で修正されていました。  
+##### 参考
+* https://github.com/microsoft/vscode/issues/120279#issuecomment-824950294
+* https://stackoverflow.com/questions/66943852/npm-scripts-not-shown-in-explorer-sidebar-how-to-shwo-them-again#66945789
