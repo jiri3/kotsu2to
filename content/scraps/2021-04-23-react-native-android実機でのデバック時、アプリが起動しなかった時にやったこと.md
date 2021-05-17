@@ -1,7 +1,7 @@
 ---
 category: scraps
-date: 2021-04-23T04:46:45.291Z
-updatedate: 2021-05-17T01:34:25.286Z
+date: 2021-05-17T01:37:07.049Z
+updatedate: 2021-05-17T01:37:11.825Z
 title: "[React Native] android実機でのデバック時、アプリが起動しなかった時にやったこと"
 description: android実機でのデバック時、エラーが発生してアプリが起動しなかった時にやったことをまとめています。
 tags:
