@@ -1,7 +1,7 @@
 ---
 category: scraps
-date: 2021-09-03T08:38:21.892Z
-updatedate: 2021-09-03T08:38:28.317Z
+date: 2021-09-03T10:00:21.892Z
+updatedate: 2021-09-03T08:52:44.667Z
 title: Android SDKのパッケージを確認する
 description: Android Studioを利用していない場合のAndroid SDK パッケージの確認方法です。
 tags:
