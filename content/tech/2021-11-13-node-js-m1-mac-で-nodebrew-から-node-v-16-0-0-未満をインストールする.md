@@ -1,12 +1,13 @@
 ---
 category: tech
 date: 2021-11-13T09:32:03.370Z
-updatedate: 2021-11-13T09:32:06.830Z
+updatedate: 2021-11-13T09:44:48.768Z
 title: "[Node.js]M1 Mac で nodebrew から  node v.16.0.0 未満をインストールする"
 description: M1 Mac で nodebrew から node v.16.0.0 未満をインストール方法を紹介します。
 tags:
   - Node.js
   - nodebrew
+  - M1 Mac
 ---
 環境
 
