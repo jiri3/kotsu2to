@@ -1,7 +1,7 @@
 ---
 category: tech
-date: 2021-11-13T09:16:21.218Z
-updatedate: 2021-11-13T09:20:47.699Z
+date: 2021-11-13T09:32:03.370Z
+updatedate: 2021-11-13T09:32:06.830Z
 title: "[Node.js]M1 Mac で nodebrew から  node v.16.0.0 未満をインストールする"
 description: M1 Mac で nodebrew から node v.16.0.0 未満をインストール方法を紹介します。
 tags:
@@ -16,7 +16,7 @@ tags:
 
 M1 Mac 環境の nodebrew で v16.0.0 未満の node をインストールしようとすると、次のようにインストールできません。
 
-```zsh
+```shell
 % nodebrew install v15.14.0
 v15.14.0 is not found
 
@@ -29,7 +29,7 @@ Can not fetch: https://nodejs.org/dist/v15.14.0/node-v15.14.0-darwin-arm64.tar.g
 
 ※ ソースコードのダウンロードに失敗する場合は、nodebrew のホームディレクトリ（デフォルトは、$HOME/.nodebrew）配下に、src ディレクトリが存在するか確認してください。
 
-```zsh
+```shell
 # Node.jsをソースコードからコンパイルする
 % nodebrew compile v15.14.0
 
