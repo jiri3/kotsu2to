@@ -1,6 +1,6 @@
 import React from "react"
 import { Link, graphql, PageProps } from "gatsby"
-import style from "./index.module.css"
+import * as style from "./index.module.css"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import { rhythm } from "../utils/typography"

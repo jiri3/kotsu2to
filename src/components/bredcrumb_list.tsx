@@ -1,11 +1,11 @@
 import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
-import style from "./bredcrumb_list.module.css"
+import * as style from "./bredcrumb_list.module.css"
 
 interface Props {
   location: Location
 }
-const BredcrumbList: React.FC<Props> = props => {
+const BredcrumbList: React.FC<Props> = (props) => {
   const { location } = props
   // GraphQLの結果を格納する
   const { site, allSitePage } = useData()
@@ -15,7 +15,7 @@ const BredcrumbList: React.FC<Props> = props => {
   // 階層構造を生成する
   const breadCrumbInfo = location.pathname
     .split("/")
-    .filter(pathName => pathName !== "")
+    .filter((pathName) => pathName !== "")
     .reduce(
       (pre, pathName) => {
         const parentPath = pre[pre.length - 1].path
@@ -28,7 +28,7 @@ const BredcrumbList: React.FC<Props> = props => {
         // パンくずリストの階層名として表示するラベルを設定する
         const pageTitle =
           pathListIndex !== -1
-            ? allSitePage.nodes[pathListIndex].context.pageTitle
+            ? allSitePage.nodes[pathListIndex].pageContext.pageTitle
             : pathName
 
         pre.push(convertToPageInfo(currentPath, pageTitle, isExistPage))
@@ -55,7 +55,11 @@ const BredcrumbList: React.FC<Props> = props => {
   )
 }
 
-function convertToPageInfo(path:string, pageTitle:string, isExistPage:boolean) {
+function convertToPageInfo(
+  path: string,
+  pageTitle: string,
+  isExistPage: boolean
+) {
   return { path: path, pageTitle: pageTitle, isExistPage: isExistPage }
 }
 
@@ -65,9 +69,7 @@ function useData() {
       allSitePage {
         nodes {
           path
-          context {
-            pageTitle
-          }
+          pageContext
         }
       }
       site {

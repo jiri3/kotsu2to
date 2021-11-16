@@ -2,7 +2,7 @@ import React from "react"
 import { Link } from "gatsby"
 import { rhythm, scale } from "../utils/typography"
 import Menu from "./menu"
-import style from "./layout.module.css"
+import * as style from "./layout.module.css"
 import { useStaticQuery, graphql } from "gatsby"
 
 interface Props {
