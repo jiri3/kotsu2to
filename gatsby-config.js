@@ -111,17 +111,13 @@ module.exports = {
             allSitePage {
               nodes {
                 path
-                context {
-                  updatedate
-                }
+                pageContext
               }
             }
           }`,
-        serialize: ({ site, allSitePage }) => {
-          return allSitePage.nodes.map(node => {
-            const { path } = node
-            const url = `${site.siteMetadata.siteUrl}${node.path}`
-            const updatedate = node.context.updatedate
+        serialize: ({path, pageContext}) => {
+            const url = `${path}`
+            const updatedate = pageContext.updatedate
             const lastmod = updatedate
               ? updatedate
               : moment().format("YYYY-MM-DD")
@@ -140,7 +136,6 @@ module.exports = {
               changefreq: `yearly`,
               priority: 0.5,
             }
-          })
         },
       },
     },
