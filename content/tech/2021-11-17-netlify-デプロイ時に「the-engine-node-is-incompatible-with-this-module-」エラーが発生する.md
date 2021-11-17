@@ -1,7 +1,7 @@
 ---
 category: tech
 date: 2021-11-17T09:47:28.310Z
-updatedate: 2021-11-17T09:52:45.966Z
+updatedate: 2021-11-17T13:58:24.028Z
 title: '[Netlify]デプロイ時に「The engine "node" is incompatible with this module.」エラーが発生する'
 description: Gatsby 製ブログの node モジュール一式をupdate し、Netlify にデプロイしたところ「The engine
   "node" is incompatible with this module.」というエラーが発生しました。
@@ -12,7 +12,8 @@ tags:
 Gatsby 製ブログの node モジュール一式を update し、Netlify にデプロイしたところ次のエラーが発生しました。
 
 ```shell
-error gatsby@4.2.0: The engine "node" is incompatible with this module. Expected version ">=14.15.0". Got "12.18.0"
+error gatsby@4.2.0: The engine "node" is incompatible with this module. 
+Expected version ">=14.15.0". Got "12.18.0"
 ```
 
 このエラーを解消するには、node のバージョンを上げる必要があります。  
