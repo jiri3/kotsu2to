@@ -1,7 +1,7 @@
 ---
 category: scraps
 date: 2021-11-27T02:31:48.797Z
-updatedate: 2021-11-27T02:45:47.623Z
+updatedate: 2021-11-27T02:48:10.279Z
 title: "[React Native] M1 Mac で yarn react-native start するとエラーが発生する"
 description: M1 Mac で yarn react-native start すると「error Command failed with
   signal "SIGABRT".」エラーが発生し 、Metro Bundler が起動しませんでした。Node.js
@@ -12,7 +12,7 @@ tags:
 ---
 M1 Mac で `% yarn react-native start` すると「error Command failed with signal "SIGABRT".」エラーが発生し、Metro Bundler が起動しませんでした。
 
-```script
+```shell
 # エラー発生時のログを抜粋
 % yarn react-native start
 
